@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+  --color-primary: #0056b3;
+  --color-primary-dark: #003d80;
+  --color-teal: #2a9d8f;
+  --color-teal-dark: #21867a;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-card: #f8fafc;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #0056b3 0%, #4a90d9 20%, #ffffff 50%, #a8e6cf 75%, #2a9d8f 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(0, 86, 179, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 86, 179, 0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+.btn-pulse:hover {
+  animation: pulse-ring 1.5s infinite;
+}
