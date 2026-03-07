@@ -29,7 +29,7 @@ export default function Credential() {
   return (
     <section id="inscricao" className="py-24 sm:py-32 px-6">
       <div className="max-w-2xl mx-auto">
-        <div className="rounded-3xl border border-border bg-gradient-to-br from-card to-white p-8 sm:p-12 text-center shadow-sm">
+        <div className="rounded-3xl border border-border bg-linear-to-br from-card to-white p-8 sm:p-12 text-center shadow-sm">
           {/* Badge */}
           <span className="inline-flex items-center gap-1.5 bg-teal/10 text-teal text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             <Tag size={14} />
@@ -70,7 +70,7 @@ export default function Credential() {
             ).map(([key, label]) => (
               <div
                 key={key}
-                className="flex flex-col items-center bg-primary/5 rounded-xl px-4 py-3 min-w-[60px]"
+                className="flex flex-col items-center bg-primary/5 rounded-xl px-4 py-3 min-w-15"
               >
                 <span className="text-2xl sm:text-3xl font-bold text-foreground tabular-nums">
                   {String(time[key]).padStart(2, "0")}
