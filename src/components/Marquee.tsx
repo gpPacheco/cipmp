@@ -1,25 +1,34 @@
+const keywords = [
+  "Podologia",
+  "Saúde",
+  "Inovação",
+  "Biomecânica",
+  "Dermatologia",
+  "Prevenção",
+  "Tecnologia clínica",
+  "Reabilitação",
+  "Diabetes",
+  "Pesquisa aplicada",
+];
+
 export default function Marquee() {
-  const row1 =
-    "Podologia · Biomecânica · Ortopedia · Dermatologia · Diabetes · Inovação · Tecnologia · Saúde Pública · Reabilitação · Cirurgia";
-  const row2 =
-    "Laser · Órteses · Diagnóstico · Prevenção · Pesquisa Clínica · IA em Saúde · Fisioterapia · Anatomia · Angiologia · Neurologia";
+  const loopItems = [...keywords, ...keywords];
 
   return (
-    <section className="py-16 overflow-hidden select-none">
-      {/* Row 1 — left */}
-      <div className="relative flex whitespace-nowrap mb-4">
-        <div className="animate-marquee-left flex gap-12 text-xl sm:text-2xl font-semibold text-zinc-500 tracking-wide">
-          <span>{row1}</span>
-          <span>{row1}</span>
-        </div>
+    <div className="ticker-group relative overflow-hidden rounded-2xl border border-border/70 bg-white/55 py-5 backdrop-blur-sm">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-background to-transparent" />
+
+      <div className="ticker-track flex w-max items-center gap-8 px-6 sm:gap-12">
+        {loopItems.map((item, index) => (
+          <span
+            key={`${item}-${index}`}
+            className="shrink-0 text-sm sm:text-base font-medium tracking-[0.08em] text-foreground/70"
+          >
+            {item}
+          </span>
+        ))}
       </div>
-      {/* Row 2 — right */}
-      <div className="relative flex whitespace-nowrap">
-        <div className="animate-marquee-right flex gap-12 text-xl sm:text-2xl font-semibold text-zinc-500 tracking-wide">
-          <span>{row2}</span>
-          <span>{row2}</span>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 }

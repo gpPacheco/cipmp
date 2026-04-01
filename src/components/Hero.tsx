@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
+    <section id="hero" className="relative min-h-[100dvh] flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
       {/* Decorative soft gradient */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
@@ -15,6 +16,17 @@ export default function Hero() {
       <span className="inline-block bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-8">
         1ª Edição · 2026
       </span>
+
+      <div className="mb-8 rounded-2xl border border-border/70 bg-white/70 px-4 py-3 backdrop-blur-sm">
+        <Image
+          src="/logo_evento.png"
+          alt="Logo principal do evento"
+          width={280}
+          height={88}
+          className="h-14 sm:h-16 w-auto"
+          priority
+        />
+      </div>
 
       {/* Logo / Title */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight max-w-4xl">

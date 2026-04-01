@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Tag, Timer } from "lucide-react";
 
 function getTimeLeft(target: Date) {
@@ -30,6 +31,14 @@ export default function Credential() {
     <section id="inscricao" className="py-24 sm:py-32 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="rounded-3xl border border-border bg-linear-to-br from-card to-white p-8 sm:p-12 text-center shadow-sm">
+          <Image
+            src="/logo_evento.png"
+            alt="Logo principal do evento"
+            width={220}
+            height={72}
+            className="h-12 w-auto mx-auto mb-6"
+          />
+
           {/* Badge */}
           <span className="inline-flex items-center gap-1.5 bg-teal/10 text-teal text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             <Tag size={14} />

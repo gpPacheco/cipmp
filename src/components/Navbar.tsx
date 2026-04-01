@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { MapPin, Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -22,8 +23,15 @@ export default function Navbar() {
       } rounded-full px-4 sm:px-6 py-3 flex items-center gap-4 sm:gap-6 max-w-2xl w-[95%] sm:w-auto`}
     >
       {/* Logo */}
-      <a href="#" className="font-bold text-primary text-base sm:text-lg whitespace-nowrap tracking-tight">
-        CIPMP
+      <a href="#hero" className="shrink-0">
+        <Image
+          src="/logo_evento.png"
+          alt="Logo principal do evento"
+          width={152}
+          height={44}
+          className="h-9 sm:h-10 w-auto"
+          priority
+        />
       </a>
 
       {/* Desktop nav */}
@@ -37,6 +45,12 @@ export default function Navbar() {
           className="text-sm text-foreground/80 hover:text-primary transition-colors"
         >
           Palestrantes
+        </a>
+        <a
+          href="#patrocinadores"
+          className="text-sm text-foreground/80 hover:text-primary transition-colors"
+        >
+          Patrocinadores
         </a>
         <a
           href="#inscricao"
@@ -68,6 +82,13 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
           >
             Palestrantes
+          </a>
+          <a
+            href="#patrocinadores"
+            className="text-sm text-foreground/80 hover:text-primary transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            Patrocinadores
           </a>
           <a
             href="#inscricao"
