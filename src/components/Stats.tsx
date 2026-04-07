@@ -81,9 +81,9 @@ export default function Stats() {
     <section
       id="stats"
       ref={sectionRef}
-      className="py-24 sm:py-32 px-6"
+      className="py-16 sm:py-20 px-6"
     >
-      <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold tracking-tight mb-10">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold tracking-tight mb-8">
         A CIPMP em números
       </h2>
       <div className="max-w-5xl mx-auto">
@@ -106,7 +106,7 @@ export default function Stats() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
             O Futuro da Medicina e Podologia
           </h2>
@@ -116,7 +116,7 @@ export default function Stats() {
           </p>
           <a
             href="#inscricao"
-            className="btn-pulse mt-8 inline-flex items-center gap-2 bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-teal-dark transition-colors"
+            className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 text-white font-semibold transition-colors duration-300 hover:bg-primary-dark active:scale-[0.98]"
           >
             Inscreva-se agora
           </a>

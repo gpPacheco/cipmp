@@ -1,14 +1,14 @@
 import Image from "next/image";
-import Marquee from "@/components/Marquee";
 
 const sponsors = [
+  { name: "Cuore", src: "/logo_CUORE.png" },
   { name: "Qben", src: "/logo Qben .png" },
   { name: "Humecta", src: "/logo humecta.png" },
 ];
 
 export default function Sponsors() {
   return (
-    <section id="patrocinadores" className="relative py-24 sm:py-32 px-6 overflow-hidden">
+    <section id="patrocinadores" className="relative py-16 sm:py-20 px-6 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -right-16 -bottom-16 opacity-[0.05]">
           <Image
@@ -39,22 +39,18 @@ export default function Sponsors() {
           </p>
         </div>
 
-        <div className="mt-10">
-          <Marquee />
-        </div>
-
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {sponsors.map((sponsor) => (
             <article
               key={sponsor.name}
-              className="group rounded-2xl border border-border/70 bg-white/45 px-8 py-10 flex items-center justify-center transition-all duration-300 hover:border-primary/40 hover:bg-white/70"
+              className="px-8 py-8 flex items-center justify-center"
             >
               <Image
                 src={sponsor.src}
                 alt={`Logo ${sponsor.name}`}
                 width={220}
                 height={88}
-                className="h-16 w-auto object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                className="h-16 w-auto object-contain"
               />
             </article>
           ))}

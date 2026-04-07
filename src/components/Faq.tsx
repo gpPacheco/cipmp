@@ -12,11 +12,11 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     q: "Onde será realizado o evento?",
-    a: "O evento será realizado em Franca – SP, em um espaço de convenções moderno e de fácil acesso. O endereço exato será divulgado próximo à data.",
+    a: "O evento será realizado em Franca – SP, em um espaço de convenções moderno e de fácil acesso. O endereço exato será divulgado em breve",
   },
   {
     q: "Qual a data do congresso?",
-    a: "O 1º CIPMP – MedPodo Interior acontecerá em 15 e 16 de agosto de 2026, durante dois dias completos de programação.",
+    a: "O 1º CIPMP – MedPodo Interior acontecerá no dia 22 de agosto de 2026, durante dois dias completos de programação.",
   },
   {
     q: "A inscrição inclui certificado?",
@@ -24,7 +24,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Posso parcelar o pagamento?",
-    a: "Sim. Aceitamos cartão de crédito em até 6x sem juros, além de PIX e boleto para pagamento à vista com desconto adicional.",
+    a: "Sim, além de PIX e boleto para pagamento à vista com desconto adicional.",
   },
   {
     q: "Haverá estacionamento no local?",
@@ -44,7 +44,7 @@ export default function Faq() {
   };
 
   return (
-    <section id="faq" className="py-24 sm:py-32 px-6">
+    <section id="faq" className="py-16 sm:py-20 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
           Perguntas Frequentes

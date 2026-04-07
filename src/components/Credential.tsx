@@ -17,20 +17,27 @@ function getTimeLeft(target: Date) {
 }
 
 // Set event date to Aug 15, 2026
-const EVENT_DATE = new Date("2026-08-15T08:00:00");
+const EVENT_DATE = new Date("2026-08-22T08:00:00");
+const INITIAL_TIME_LEFT = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 export default function Credential() {
-  const [time, setTime] = useState(getTimeLeft(EVENT_DATE));
+  const [time, setTime] = useState(INITIAL_TIME_LEFT);
 
   useEffect(() => {
-    const id = setInterval(() => setTime(getTimeLeft(EVENT_DATE)), 1000);
-    return () => clearInterval(id);
+    const tick = () => setTime(getTimeLeft(EVENT_DATE));
+    const initialId = window.setTimeout(tick, 0);
+    const id = window.setInterval(tick, 1000);
+
+    return () => {
+      window.clearTimeout(initialId);
+      window.clearInterval(id);
+    };
   }, []);
 
   return (
-    <section id="inscricao" className="py-24 sm:py-32 px-6">
+    <section id="inscricao" className="py-16 sm:py-20 px-6">
       <div className="max-w-2xl mx-auto">
-        <div className="rounded-3xl border border-border bg-linear-to-br from-card to-white p-8 sm:p-12 text-center shadow-sm">
+        <div className="rounded-2xl border border-border bg-white p-8 sm:p-10 text-center">
           <Image
             src="/logo_evento.png"
             alt="Logo principal do evento"
@@ -96,7 +103,7 @@ export default function Credential() {
             href="https://example.com/registro"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-pulse mt-10 inline-flex items-center gap-2 bg-primary text-white font-semibold px-10 py-4 rounded-full hover:bg-primary-dark transition-colors text-base"
+            className="mt-9 inline-flex items-center gap-2 rounded-md bg-primary px-9 py-3 text-base font-semibold text-white transition-colors duration-300 hover:bg-primary-dark active:scale-[0.98]"
           >
             Inscreva-se agora
           </a>

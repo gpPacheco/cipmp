@@ -1,26 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { MapPin, Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 shadow-lg backdrop-blur-xl"
-          : "bg-white/60 backdrop-blur-md"
-      } rounded-full px-4 sm:px-6 py-3 flex items-center gap-4 sm:gap-6 max-w-2xl w-[95%] sm:w-auto`}
+      className="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-2xl -translate-x-1/2 items-center gap-4 rounded-full bg-white/85 px-4 py-3 shadow-lg backdrop-blur-xl sm:w-auto sm:px-6 sm:gap-6"
     >
       {/* Logo */}
       <a href="#hero" className="shrink-0">
@@ -71,7 +60,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg p-5 flex flex-col gap-4 sm:hidden">
+        <div className="absolute top-full left-0 right-0 mt-2 flex flex-col gap-4 rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur-xl sm:hidden">
           <span className="flex items-center gap-1 text-muted text-sm">
             <MapPin size={14} />
             Franca – SP
