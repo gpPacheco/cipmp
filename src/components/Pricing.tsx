@@ -119,7 +119,7 @@ export default function Pricing() {
             Está indeciso? Fale com a gente
           </p>
           <a
-            href="wa.me/5516993108637"
+            href="https://api.whatsapp.com/send/?phone=5516993108637&text&type=phone_number&app_absent=0"
             target="_blank"
             className="mt-3 inline-flex text-[#1F4F8F] font-semibold hover:text-primary-dark transition-colors duration-300"
           >

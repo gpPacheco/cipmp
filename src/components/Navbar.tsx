@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-4 left-1/2 z-50 flex w-[95%] max-w-2xl -translate-x-1/2 items-center gap-4 rounded-full bg-white/85 px-4 py-3 shadow-lg backdrop-blur-xl sm:w-auto sm:px-6 sm:gap-6"
+      className="fixed top-4 left-1/2 z-50 flex w-[92%] sm:w-auto sm:max-w-2xl -translate-x-1/2 items-center gap-2 sm:gap-4 rounded-full bg-white/85 px-3 sm:px-6 py-2 sm:py-3 shadow-lg backdrop-blur-xl"
     >
       {/* Logo */}
       <a href="#hero" className="shrink-0">
@@ -18,32 +18,32 @@ export default function Navbar() {
           alt="Logo principal do evento"
           width={152}
           height={44}
-          className="h-9 sm:h-10 w-auto"
+          className="h-8 sm:h-10 w-auto"
           priority
         />
       </a>
 
       {/* Desktop nav */}
-      <div className="hidden sm:flex items-center gap-5 ml-auto">
-        <span className="flex items-center gap-1 text-muted text-sm">
-          <MapPin size={14} />
+      <div className="hidden sm:flex items-center gap-4 ml-auto">
+        <span className="flex items-center gap-1 text-muted text-xs sm:text-sm">
+          <MapPin size={12} />
           Franca – SP
         </span>
         <a
           href="#palestrantes"
-          className="text-sm text-foreground/80 hover:text-primary transition-colors"
+          className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
         >
           Palestrantes
         </a>
         <a
           href="#patrocinadores"
-          className="text-sm text-foreground/80 hover:text-primary transition-colors"
+          className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
         >
           Patrocinadores
         </a>
         <a
           href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
-          className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-primary-dark transition-colors"
+          className="bg-primary text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full hover:bg-primary-dark transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -53,37 +53,37 @@ export default function Navbar() {
 
       {/* Mobile hamburger */}
       <button
-        className="sm:hidden ml-auto text-foreground"
+        className="sm:hidden ml-auto text-foreground p-1"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Menu"
       >
-        {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        {menuOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 flex flex-col gap-4 rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur-xl sm:hidden">
-          <span className="flex items-center gap-1 text-muted text-sm">
-            <MapPin size={14} />
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[calc(100vw-2rem)] flex flex-col gap-3 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur-xl sm:hidden">
+          <span className="flex items-center gap-1 text-muted text-xs">
+            <MapPin size={12} />
             Franca – SP
           </span>
           <a
             href="#palestrantes"
-            className="text-sm text-foreground/80 hover:text-primary transition-colors"
+            className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Palestrantes
           </a>
           <a
             href="#patrocinadores"
-            className="text-sm text-foreground/80 hover:text-primary transition-colors"
+            className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Patrocinadores
           </a>
           <a
             href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
-            className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-primary-dark transition-colors text-center"
+            className="bg-primary text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary-dark transition-colors text-center"
             onClick={() => setMenuOpen(false)}
             target="_blank"
             rel="noopener noreferrer"
