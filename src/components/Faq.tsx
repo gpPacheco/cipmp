@@ -16,7 +16,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Qual a data do congresso?",
-    a: "O 1º CIPMP – MedPodo Interior acontecerá no dia 22 de agosto de 2026, durante dois dias completos de programação.",
+    a: "O 1º CIPMP acontecerá no dia 22 de agosto de 2026, durante dois dias completos de programação.",
   },
   {
     q: "A inscrição inclui certificado?",
@@ -25,10 +25,6 @@ const faqs: FaqItem[] = [
   {
     q: "Posso parcelar o pagamento?",
     a: "Sim, além de PIX e boleto para pagamento à vista com desconto adicional.",
-  },
-  {
-    q: "Haverá estacionamento no local?",
-    a: "Sim, o espaço conta com estacionamento gratuito para os participantes do evento.",
   },
   {
     q: "Quem pode participar?",

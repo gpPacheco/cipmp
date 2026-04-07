@@ -100,7 +100,7 @@ export default function Credential() {
 
           {/* CTA */}
           <a
-            href="https://example.com/registro"
+            href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-9 inline-flex items-center gap-2 rounded-md bg-primary px-9 py-3 text-base font-semibold text-white transition-colors duration-300 hover:bg-primary-dark active:scale-[0.98]"

@@ -14,7 +14,7 @@ export default function Footer() {
             className="h-8 w-auto"
           />
           <span className="font-semibold text-foreground">
-            1º CIPMP – MedPodo Interior 2026
+            1º CIPMP 2026
           </span>
         </div>
         <span className="flex items-center gap-1">

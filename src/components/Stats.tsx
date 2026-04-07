@@ -11,10 +11,10 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { icon: <Mic size={28} />, value: 20, suffix: "+", label: "Palestrantes" },
-  { icon: <Clock size={28} />, value: 16, suffix: "h", label: "De conteúdo" },
-  { icon: <Handshake size={28} />, value: 12, suffix: "+", label: "Parceiros" },
-  { icon: <Users size={28} />, value: 500, suffix: "+", label: "Público esperado" },
+  { icon: <Mic size={28} />, value: 9, suffix: "+", label: "Palestrantes" },
+  { icon: <Clock size={28} />, value: 12, suffix: "h", label: "De conteúdo" },
+  { icon: <Handshake size={28} />, value: 3, suffix: "+", label: "Grandes empresas parceiras" },
+  { icon: <Users size={28} />, value: 150, suffix: "+", label: "Público esperado" },
 ];
 
 function animateValue(
@@ -115,7 +115,7 @@ export default function Stats() {
             total nas últimas inovações do setor.
           </p>
           <a
-            href="#inscricao"
+            href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
             className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 text-white font-semibold transition-colors duration-300 hover:bg-primary-dark active:scale-[0.98]"
           >
             Inscreva-se agora

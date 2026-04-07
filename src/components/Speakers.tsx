@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Speaker {
   name: string;
@@ -12,89 +12,63 @@ interface Speaker {
 
 const speakers: Speaker[] = [
   {
-    name: "Dra. Camila Ribeiro",
-    specialty: "Dermatologia Podológica",
+    name: "Rogério de Augusto",
+    specialty: "Fisioterapeuta Sesi Franca Basquete",
     photo: "/p1.PNG",
   },
   {
-    name: "Dr. André Martins",
-    specialty: "Ortopedia & Biomecânica",
+    name: "Dr. Marcelo Cruz",
+    specialty: "Ortopedia & Traumatologia",
     photo: "/p2.PNG",
   },
+  // {
+  //   name: "",
+  //   specialty: "",
+  //   photo: "/p3.PNG",
+  // },
   {
-    name: "Prof. Lucas Almeida",
-    specialty: "Fisioterapia Esportiva",
-    photo: "/p3.PNG",
-  },
-  {
-    name: "Dra. Juliana Costa",
-    specialty: "Cirurgia Podológica",
+    name: "Maristela Borges",
+    specialty: "Nutricionista",
     photo: "/p4.PNG",
   },
+  // {
+  //   name: "Dr. ",
+  //   specialty: "",
+  //   photo: "/p5.PNG",
+  // },
   {
-    name: "Dr. Rafael Souza",
-    specialty: "Angiologia Clínica",
-    photo: "/p5.PNG",
-  },
-  {
-    name: "Dra. Fernanda Lima",
-    specialty: "Endocrinologia & Diabetes",
+    name: "Dr. Fernando Raymundo",
+    specialty: "Médico Vascular",
     photo: "/p6.PNG",
   },
+  // {
+  //   name: "",
+  //   specialty: "",
+  //   photo: "/p7.PNG",
+  // },
   {
-    name: "Dr. Paulo Henrique",
-    specialty: "Tecnologia em Saúde",
-    photo: "/p7.PNG",
-  },
-  {
-    name: "Dra. Beatriz Nunes",
-    specialty: "Pesquisa Clínica",
+    name: "Haiani Mendes",
+    specialty: "Enfermeira Estomoterapeuta",
     photo: "/p8.PNG",
   },
-  {
-    name: "Dra. Larissa Menezes",
-    specialty: "Neuropatias do pé diabético",
-    photo: "/p9.PNG",
-  },
-  {
-    name: "Dr. Thiago Albuquerque",
-    specialty: "Ultrassonografia musculoesquelética",
-    photo: "/p10.PNG",
-  },
-  {
-    name: "Dra. Valentina Prado",
-    specialty: "Reabilitação funcional",
-    photo: "/p11.PNG",
-  },
-  {
-    name: "Prof. Renato Sampaio",
-    specialty: "Biomecânica aplicada ao esporte",
-    photo: "/p12.PNG",
-  },
 ];
+  // {
+  //   name: "",
+  //   specialty: "",
+  //   photo: "/p11.PNG",
+  // },
 
 export default function Speakers() {
   const loopSpeakers = [...speakers, ...speakers, ...speakers];
-  const pastelBackgrounds = [
-    "bg-gradient-to-br from-[#D8C5E8] to-[#E8D4C8]",
-    "bg-gradient-to-br from-[#C8DDE8] to-[#D8E5F0]",
-    "bg-gradient-to-br from-[#D4E8D8] to-[#D8E8D8]",
-    "bg-gradient-to-br from-[#E8DCC8] to-[#F0E8D8]",
-    "bg-gradient-to-br from-[#DCE5F0] to-[#E8DCP8]",
-    "bg-gradient-to-br from-[#E8D4D8] to-[#F0D8E0]",
-  ];
+  const speakerCardGradient =
+    "bg-gradient-to-r from-[#F4C4A8] to-[#C8D5F0]";
 
   const carouselRef = useRef<HTMLDivElement>(null);
-  const scrollPositionRef = useRef(0);
   const cardWidthRef = useRef(0);
   const loopWidthRef = useRef(0);
-  const manualOffsetRef = useRef(0);
-  const manualAnimRef = useRef<{
-    from: number;
-    to: number;
-    start: number;
-    duration: number;
-  } | null>(null);
+  const dragStartRef = useRef(0);
+  const dragActiveRef = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const normalizeLoopPosition = (position: number) => {
     const loopWidth = loopWidthRef.current;
@@ -115,10 +89,11 @@ export default function Speakers() {
     return normalized;
   };
 
-  const calculateCardWidth = (element: HTMLDivElement) => {
+  const calculateMetrics = (element: HTMLDivElement) => {
     const cards = element.querySelectorAll("article");
     const firstCard = cards[0] as HTMLElement | undefined;
     const secondCard = cards[1] as HTMLElement | undefined;
+    const firstCardOfSecondLoop = cards[speakers.length] as HTMLElement | undefined;
 
     if (firstCard && secondCard) {
       cardWidthRef.current = secondCard.offsetLeft - firstCard.offsetLeft;
@@ -126,23 +101,25 @@ export default function Speakers() {
       cardWidthRef.current = firstCard.getBoundingClientRect().width;
     }
 
-    loopWidthRef.current = element.scrollWidth / 3;
+    if (firstCard && firstCardOfSecondLoop) {
+      loopWidthRef.current = firstCardOfSecondLoop.offsetLeft - firstCard.offsetLeft;
+    } else {
+      loopWidthRef.current = element.scrollWidth / 3;
+    }
   };
 
   useEffect(() => {
     const element = carouselRef.current;
     if (!element) return;
 
-    calculateCardWidth(element);
+    calculateMetrics(element);
     if (loopWidthRef.current > 0) {
-      scrollPositionRef.current = loopWidthRef.current;
-      element.scrollLeft = scrollPositionRef.current;
+      element.scrollLeft = loopWidthRef.current;
     }
 
     const resizeObserver = new ResizeObserver(() => {
-      calculateCardWidth(element);
-      scrollPositionRef.current = normalizeLoopPosition(scrollPositionRef.current);
-      element.scrollLeft = scrollPositionRef.current;
+      calculateMetrics(element);
+      element.scrollLeft = normalizeLoopPosition(element.scrollLeft);
     });
 
     resizeObserver.observe(element);
@@ -156,63 +133,84 @@ export default function Speakers() {
     const element = carouselRef.current;
     if (!element) return;
 
-    let frameId = 0;
-    let lastTimestamp = 0;
-    const speedPerSecond = 2;
-
-    const animate = (timestamp: number) => {
-      if (!lastTimestamp) {
-        lastTimestamp = timestamp;
-      }
-
-      const delta = timestamp - lastTimestamp;
-      lastTimestamp = timestamp;
-
-      let manualStep = 0;
-      const anim = manualAnimRef.current;
-      if (anim) {
-        const progress = Math.min(1, (timestamp - anim.start) / anim.duration);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const currentOffset = anim.from + (anim.to - anim.from) * eased;
-        manualStep = currentOffset - manualOffsetRef.current;
-        manualOffsetRef.current = currentOffset;
-
-        if (progress >= 1) {
-          manualAnimRef.current = null;
-        }
-      }
-
-      const nextPosition = normalizeLoopPosition(
-        scrollPositionRef.current + (delta * speedPerSecond) / 1000 + manualStep,
-      );
-
-      scrollPositionRef.current = nextPosition;
-
-      element.scrollLeft = scrollPositionRef.current;
-      frameId = window.requestAnimationFrame(animate);
+    const handleMouseDown = (e: MouseEvent) => {
+      dragActiveRef.current = true;
+      dragStartRef.current = e.clientX;
+      setIsDragging(true);
     };
 
-    frameId = window.requestAnimationFrame(animate);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!dragActiveRef.current) return;
+      const diff = dragStartRef.current - e.clientX;
+      element.scrollLeft += diff;
+      dragStartRef.current = e.clientX;
+      element.scrollLeft = normalizeLoopPosition(element.scrollLeft);
+    };
+
+    const handleMouseUp = () => {
+      dragActiveRef.current = false;
+      setIsDragging(false);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      dragActiveRef.current = true;
+      dragStartRef.current = e.touches[0].clientX;
+      setIsDragging(true);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!dragActiveRef.current) return;
+      const diff = dragStartRef.current - e.touches[0].clientX;
+      element.scrollLeft += diff;
+      dragStartRef.current = e.touches[0].clientX;
+      element.scrollLeft = normalizeLoopPosition(element.scrollLeft);
+    };
+
+    const handleTouchEnd = () => {
+      dragActiveRef.current = false;
+      setIsDragging(false);
+    };
+
+    element.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    element.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
 
     return () => {
-      window.cancelAnimationFrame(frameId);
+      element.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      element.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
   const handleManualScroll = (direction: "prev" | "next") => {
-    if (!Number.isFinite(cardWidthRef.current) || cardWidthRef.current <= 0) return;
+    const element = carouselRef.current;
+    if (!element) return;
 
-    const cardWidth = cardWidthRef.current;
-    const step = direction === "next" ? cardWidth : -cardWidth;
-    const from = manualOffsetRef.current;
-    const to = from + step;
+    const cardWidth =
+      Number.isFinite(cardWidthRef.current) && cardWidthRef.current > 0
+        ? cardWidthRef.current
+        : element.clientWidth;
 
-    manualAnimRef.current = {
-      from,
-      to,
-      start: performance.now(),
-      duration: 280,
-    };
+    const loopWidth = loopWidthRef.current;
+
+    if (!Number.isFinite(cardWidth) || cardWidth <= 0 || !loopWidth) return;
+
+    const normalizedCurrent = normalizeLoopPosition(element.scrollLeft);
+    const relativeToLoop = normalizedCurrent - loopWidth;
+    const currentIndex = Math.round(relativeToLoop / cardWidth);
+    const nextIndex = direction === "next" ? currentIndex + 1 : currentIndex - 1;
+    const target = normalizeLoopPosition(loopWidth + nextIndex * cardWidth);
+
+    element.scrollTo({
+      left: target,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -234,8 +232,9 @@ export default function Speakers() {
           <button
             type="button"
             onClick={() => handleManualScroll("prev")}
+            disabled={isDragging}
             aria-label="Anterior"
-            className="absolute left-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#D0D5DC] bg-white text-[#243342] shadow-md transition-all hover:border-[#B8BFC8] hover:bg-[#F5F7FA] sm:left-4 sm:h-12 sm:w-12"
+            className="absolute left-2 top-1/2 z-20 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#D0D5DC] bg-white text-[#243342] shadow-md transition-all hover:border-[#B8BFC8] hover:bg-[#F5F7FA] disabled:opacity-50 sm:left-4 sm:h-12 sm:w-12"
           >
             <svg
               aria-hidden="true"
@@ -254,8 +253,9 @@ export default function Speakers() {
           <button
             type="button"
             onClick={() => handleManualScroll("next")}
+            disabled={isDragging}
             aria-label="Próximo"
-            className="absolute right-2 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#D0D5DC] bg-white text-[#243342] shadow-md transition-all hover:border-[#B8BFC8] hover:bg-[#F5F7FA] sm:right-4 sm:h-12 sm:w-12"
+            className="absolute right-2 top-1/2 z-20 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#D0D5DC] bg-white text-[#243342] shadow-md transition-all hover:border-[#B8BFC8] hover:bg-[#F5F7FA] disabled:opacity-50 sm:right-4 sm:h-12 sm:w-12"
           >
             <svg
               aria-hidden="true"
@@ -274,33 +274,40 @@ export default function Speakers() {
           <div className="overflow-hidden">
             <div
               ref={carouselRef}
-              className="flex gap-5 overflow-x-scroll px-[calc(50%-130px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-6 sm:px-12"
+              className={`flex gap-5 overflow-x-scroll px-[calc(50%-130px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-6 sm:px-12 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
             >
               {loopSpeakers.map((s, index) => (
                 <article
                   key={`${s.photo}-${index}`}
-                  className="group flex flex-col shrink-0"
+                  className="group flex flex-col shrink-0 transition-none"
                   style={{ width: "260px" }}
                 >
-                  <div
-                    className={`relative aspect-square overflow-hidden rounded-3xl border border-[#E0E5EC] ${pastelBackgrounds[index % pastelBackgrounds.length]} transition-transform duration-300 group-hover:scale-[1.02]`}
-                  >
-                    <Image
-                      src={s.photo}
-                      alt={`Foto de ${s.name}`}
-                      fill
-                      sizes="260px"
-                      className="object-cover object-center"
-                    />
-                  </div>
+                  {/* Card Container with shadow */}
+                  <div className="rounded-2xl bg-white shadow-sm">
+                    {/* Image Area with gradient background */}
+                    <div
+                      className={`relative aspect-square overflow-hidden rounded-t-2xl border-b border-[#E0E5EC] ${speakerCardGradient}`}
+                    >
+                      {/* Image positioned to project head above card boundary */}
+                      <Image
+                        src={s.photo}
+                        alt={`Foto de ${s.name}`}
+                        fill
+                        sizes="260px"
+                        className="mt-12 object-cover scale-[1.1] -translate-y-10 transition-transform duration-300 ease-out group-hover:-translate-y-12"
+                        style={{ objectPosition: "center 20%" }}
+                      />
+                    </div>
 
-                  <div className="pt-5 text-center">
-                    <h3 className="text-base font-bold text-foreground uppercase tracking-[-0.01em] text-balance">
-                      {s.name}
-                    </h3>
-                    <p className="mt-2 text-xs text-muted uppercase leading-relaxed tracking-widest text-pretty">
-                      {s.specialty}
-                    </p>
+                    {/* Text Area - White background */}
+                    <div className="px-6 py-5 text-center">
+                      <h3 className="text-sm font-bold text-[#1a1a1a] uppercase tracking-[0.05em] leading-snug text-balance">
+                        {s.name}
+                      </h3>
+                      <p className="mt-3 text-[11px] text-[#6b7280] uppercase leading-tight tracking-[0.08em] text-pretty">
+                        {s.specialty}
+                      </p>
+                    </div>
                   </div>
                 </article>
               ))}

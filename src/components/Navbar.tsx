@@ -14,7 +14,7 @@ export default function Navbar() {
       {/* Logo */}
       <a href="#hero" className="shrink-0">
         <Image
-          src="/logo_evento.png"
+          src="/favicon.png"
           alt="Logo principal do evento"
           width={152}
           height={44}
@@ -42,8 +42,10 @@ export default function Navbar() {
           Patrocinadores
         </a>
         <a
-          href="#inscricao"
+          href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
           className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-primary-dark transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Inscreva-se
         </a>
@@ -80,9 +82,11 @@ export default function Navbar() {
             Patrocinadores
           </a>
           <a
-            href="#inscricao"
+            href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
             className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-primary-dark transition-colors text-center"
             onClick={() => setMenuOpen(false)}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Inscreva-se
           </a>

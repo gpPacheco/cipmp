@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const sponsors = [
-  { name: "Cuore", src: "/logo_CUORE.png" },
+  { name: "Cuore", src: "/Logo_CUORE.png" },
   { name: "Qben", src: "/logo Qben .png" },
   { name: "Humecta", src: "/logo humecta.png" },
 ];

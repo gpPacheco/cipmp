@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "1º CIPMP - MedPodo Interior 2026",
+  title: "1º CIPMP - 2026",
   description:
     "O maior congresso de integração entre Medicina e Podologia do interior paulista. Franca - SP, 2026.",
 };
