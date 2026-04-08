@@ -35,7 +35,7 @@ export default function Credential() {
   }, []);
 
   return (
-    <section id="inscricao" className="py-16 sm:py-20 px-6">
+    <section id="inscricao" className="py-12 sm:py-16 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="rounded-2xl border border-border bg-white p-8 sm:p-10 text-center">
           <Image

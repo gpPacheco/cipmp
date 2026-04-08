@@ -81,7 +81,7 @@ export default function Stats() {
     <section
       id="stats"
       ref={sectionRef}
-      className="py-16 sm:py-20 px-6"
+      className="py-12 sm:py-16 px-6"
     >
       <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold tracking-tight mb-8">
         A CIPMP em números

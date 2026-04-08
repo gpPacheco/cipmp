@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative flex min-h-dvh flex-col items-center justify-start px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-20 sm:pb-12">
+    <section id="hero" className="relative flex min-h-dvh flex-col items-center justify-start px-4 pt-12 pb-8 text-center sm:px-6 sm:pt-16 sm:pb-10">
       {/* Decorative soft gradient */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-0 left-1/2 h-150 w-150 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />

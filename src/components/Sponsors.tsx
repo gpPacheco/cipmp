@@ -8,7 +8,7 @@ const sponsors = [
 
 export default function Sponsors() {
   return (
-    <section id="patrocinadores" className="relative py-16 sm:py-20 px-6 overflow-hidden">
+    <section id="patrocinadores" className="relative py-12 sm:py-16 px-6 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -right-16 -bottom-16 opacity-[0.05]">
           <Image

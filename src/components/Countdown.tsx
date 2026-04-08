@@ -33,7 +33,7 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6">
+    <section className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="backdrop-blur-sm p-8 sm:p-12 text-center">
           {/* Header */}

@@ -214,7 +214,7 @@ export default function Speakers() {
   };
 
   return (
-    <section id="palestrantes" className="py-16 sm:py-20 px-4 sm:px-6">
+    <section id="palestrantes" className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex rounded-full bg-[#E1F3FE] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#1F6C9F]">
