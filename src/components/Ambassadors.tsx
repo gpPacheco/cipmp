@@ -28,7 +28,7 @@ export default function Ambassadors() {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="mt-3 text-balance text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.05]">
-            Embaixadores do Evento
+            Networking para Profissionais da Saúde no Interior
           </h2>
           <p className="mt-4 text-muted max-w-xl mx-auto leading-relaxed text-pretty">
             Personalidades que representam os valores de excelência, inovação e liderança.
@@ -49,7 +49,7 @@ export default function Ambassadors() {
                 {/* Image overlay */}
                 <Image
                   src={ambassador.photo}
-                  alt={`Foto de ${ambassador.name}`}
+                  alt={`${ambassador.name} - Especialista em Medicina Esportiva no CIPMP 2026`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover scale-[1.3] -translate-y-8 transition-transform duration-300 ease-out group-hover:scale-[1.4] group-hover:-translate-y-10 rounded-[20px]"

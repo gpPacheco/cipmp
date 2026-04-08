@@ -41,7 +41,7 @@ export default function Hero() {
       </div>
 
       <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-tight tracking-[-0.02em] text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-        Integração entre medicina, podologia e tecnologia aplicada ao cuidado.
+        1º Congresso Interdisciplinar de Podologia e Medicina Preventiva
       </h1>
 
       <p className="mt-6 text-muted text-base sm:text-lg max-w-2xl leading-relaxed">

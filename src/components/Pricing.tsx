@@ -1,39 +1,6 @@
 "use client";
 
-interface PricingOption {
-  title: string;
-  price: number;
-  description?: string;
-  badge?: string;
-  featured?: boolean;
-  cta: string;
-  link: string;
-}
-
-const pricingOptions: PricingOption[] = [
-  {
-    title: "Estudante",
-    price: 200,
-    description: "Para estudantes da área",
-    cta: "Garantir Vaga",
-    link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
-  },
-  {
-    title: "Lote Promocional",
-    price: 197,
-    badge: "Melhor Preço",
-    featured: true,
-    cta: "Garantir Vaga",
-    link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
-  },
-  {
-    title: "1º Lote",
-    price: 247,
-    description: "Acesso premium ao evento",
-    cta: "Garantir Vaga",
-    link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
-  },
-];
+import { eventOffers } from "@/lib/seo";
 
 export default function Pricing() {
   return (
@@ -49,7 +16,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pricingOptions.map((option, index) => (
+          {eventOffers.map((option, index) => (
             <div
               key={index}
               className={`relative rounded-2xl border transition-all duration-300 ease-in-out ${
