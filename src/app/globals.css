@@ -18,6 +18,13 @@
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background:
     radial-gradient(circle at 6% 10%, rgba(31, 79, 143, 0.09), transparent 34%),

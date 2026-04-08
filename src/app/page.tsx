@@ -20,8 +20,8 @@ export default function Home() {
         <Marquee />
         <Speakers />
         <Ambassadors />
-        <Pricing />
         <Countdown />
+        <Pricing />
         <Sponsors />
         <Faq />
       </main>

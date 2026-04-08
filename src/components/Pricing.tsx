@@ -40,9 +40,6 @@ export default function Pricing() {
     <section id="ingressos" className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex rounded-full bg-[#E1F3FE] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#1F6C9F]">
-            Acessibilidade
-          </span>
           <h2 className="mt-3 text-balance text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.05]">
             Escolha seu Ingresso
           </h2>
@@ -114,7 +111,7 @@ export default function Pricing() {
         </div>
 
         {/* Footer note */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center ">
           <p className="text-sm text-muted uppercase tracking-widest">
             Está indeciso? Fale com a gente
           </p>

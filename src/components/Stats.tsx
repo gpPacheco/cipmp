@@ -115,6 +115,7 @@ export default function Stats() {
             total nas últimas inovações do setor.
           </p>
           <a
+          target="_blank"
             href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
             className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3 text-white font-semibold transition-colors duration-300 hover:bg-primary-dark active:scale-[0.98]"
           >

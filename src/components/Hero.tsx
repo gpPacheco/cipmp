@@ -52,7 +52,7 @@ export default function Hero() {
 
       {/* CTA */}
       <a
-        href="#inscricao"
+        href="#ingressos"
         className="group btn-pulse mt-8 inline-flex items-center gap-3 rounded-md bg-primary px-6 py-3 text-base font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-primary-dark active:scale-[0.98]"
       >
         Garanta sua vaga

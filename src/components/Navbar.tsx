@@ -8,7 +8,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="fixed top-4 left-0 right-7 z-50 flex justify-center">
+    <div className="fixed top-4 left-0 right-0 z-50 flex justify-center">
       <nav
         className="relative flex w-[80%] sm:w-fit sm:max-w-2xl items-center gap-2 sm:gap-4 rounded-full bg-white/85 px-3 sm:px-6 py-2 sm:py-3 shadow-lg backdrop-blur-xl"
       >
