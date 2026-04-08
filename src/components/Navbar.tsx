@@ -13,7 +13,7 @@ export default function Navbar() {
         className="relative flex w-[80%] sm:w-fit sm:max-w-2xl items-center gap-2 sm:gap-4 rounded-full bg-white/85 px-3 sm:px-6 py-2 sm:py-3 shadow-lg backdrop-blur-xl"
       >
         {/* Logo */}
-        <a href="#hero" className="shrink-0">
+        <a href="#hero" className="shrink-0" title="CIPMP 2026 - Congresso de Podologia, Saúde e Medicina Esportiva">
           <Image
             src="/favicon.png"
             alt="Logo principal do evento"
@@ -32,18 +32,21 @@ export default function Navbar() {
           </span>
           <a
             href="#palestrantes"
+            title="Palestras de podologia clínica, pé diabético e biomecânica aplicada ao esporte"
             className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
           >
             Palestrantes
           </a>
           <a
             href="#patrocinadores"
+            title="Parceiros do congresso de saúde e medicina preventiva no interior de São Paulo"
             className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
           >
             Patrocinadores
           </a>
           <a
             href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
+            title="Inscrição para congresso médico com foco em saúde integral e performance"
             className="bg-primary text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full hover:bg-primary-dark transition-colors"
             target="_blank"
             rel="noopener noreferrer"
@@ -70,6 +73,7 @@ export default function Navbar() {
             </span>
             <a
               href="#palestrantes"
+              title="Palestras de podologia clínica, pé diabético e biomecânica aplicada ao esporte"
               className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
               onClick={() => setMenuOpen(false)}
             >
@@ -77,6 +81,7 @@ export default function Navbar() {
             </a>
             <a
               href="#patrocinadores"
+              title="Parceiros do congresso de saúde e medicina preventiva no interior de São Paulo"
               className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
               onClick={() => setMenuOpen(false)}
             >
@@ -84,6 +89,7 @@ export default function Navbar() {
             </a>
             <a
               href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
+              title="Inscrição para congresso médico com foco em saúde integral e performance"
               className="bg-primary text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary-dark transition-colors text-center"
               onClick={() => setMenuOpen(false)}
               target="_blank"

@@ -63,6 +63,7 @@ export default function Pricing() {
                   href={option.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`Comprar ingresso ${option.title} do congresso de saúde, podologia e medicina esportiva`}
                   className={`mt-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out ${
                     option.featured
                       ? "bg-[#1F4F8F] text-white hover:bg-primary-dark hover:scale-105 active:scale-95"
@@ -85,6 +86,7 @@ export default function Pricing() {
           <a
             href="https://api.whatsapp.com/send/?phone=5516993108637&text&type=phone_number&app_absent=0"
             target="_blank"
+            title="Atendimento sobre congresso de saúde e medicina preventiva por WhatsApp"
             className="mt-3 inline-flex text-[#1F4F8F] font-semibold hover:text-primary-dark transition-colors duration-300"
           >
             (16) 99310-8637

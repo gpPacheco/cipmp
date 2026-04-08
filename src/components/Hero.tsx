@@ -44,15 +44,25 @@ export default function Hero() {
         1º Congresso Interdisciplinar de Podologia e Medicina Preventiva
       </h1>
 
+      <h2 className="mt-5 max-w-3xl text-xl sm:text-2xl font-semibold tracking-[-0.01em] text-foreground text-balance">
+        Abordagem interdisciplinar na saúde com foco em saúde integral e bem-estar físico
+      </h2>
+
+      <h3 className="mt-3 max-w-2xl text-base sm:text-lg font-medium text-muted text-balance">
+        Inovações tecnológicas na medicina para promover longevidade e qualidade de vida
+      </h3>
+
       <p className="mt-6 text-muted text-base sm:text-lg max-w-2xl leading-relaxed">
-        O 1º Congresso de Integração entre Podologia e Medicina do interior
-        paulista. Uma experiência imersiva que une ciência, tecnologia e
-        prática clínica em Franca, SP.
+        Sobre o Evento: o 1º Congresso de Integração entre Podologia e
+        Medicina do interior paulista reúne atualização científica para
+        profissionais da saúde, medicina humanizada, saúde pública, tecnologia
+        médica e biohacking aplicado ao cuidado clínico em Franca, SP.
       </p>
 
       {/* CTA */}
       <a
         href="#ingressos"
+        title="Inscrição no congresso de saúde e medicina preventiva CIPMP 2026"
         className="group btn-pulse mt-8 inline-flex items-center gap-3 rounded-md bg-primary px-6 py-3 text-base font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-primary-dark active:scale-[0.98]"
       >
         Garanta sua vaga
