@@ -1,45 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
-interface PricingOption {
-  title: string;
-  price: number;
-  description?: string;
-  badge?: string;
-  featured?: boolean;
-  soldOut?: boolean;
-  cta: string;
-  link: string;
-}
-
-const pricingOptions: PricingOption[] = [
-  {
-    title: "Lote Promocional",
-    price: 197,
-    soldOut: true,
-    cta: "Mais pacotes",
-    link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
-  },
-  {
-    title: "Estudante",
-    price: 200,
-    description: "Para estudantes da área",
-    badge: "Melhor preço",
-    featured: true,
-    cta: "Garantir Vaga",
-    link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
-  },
-  {
-    title: "1º Lote",
-    price: 247,
-    description: "Acesso premium ao evento",
-    cta: "Garantir Vaga",
-    link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
-  },
-];
-=======
 import { eventOffers } from "@/lib/seo";
->>>>>>> b8a51ddf262e0d378aae27fad0af2792aa82a6d1
 
 export default function Pricing() {
   return (
@@ -56,26 +17,32 @@ export default function Pricing() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {eventOffers.map((option, index) => (
+            (() => {
+              const soldOut = "soldOut" in option && option.soldOut === true;
+              const badge = "badge" in option ? option.badge : undefined;
+              const description = "description" in option ? option.description : undefined;
+
+              return (
             <div
               key={index}
               className={`relative rounded-2xl border transition-all duration-300 ease-in-out ${
                 option.featured
                   ? "border-[#1F4F8F] bg-white shadow-2xl scale-105"
-                  : option.soldOut
+                  : soldOut
                     ? "border-[#4A5561] bg-[#e1e6ec] shadow-md opacity-95"
                     : "border-[#E5E7EB] bg-white/85 shadow-md hover:shadow-lg hover:border-[#1F4F8F]/30"
               }`}
             >
-              {option.soldOut ? (
+              {soldOut ? (
                 <div className="absolute left-6 top-6 inline-flex items-center rounded-full border border-[#9CA3AF] bg-[#d6dce2] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.24em] text-[#4B5563]">
                   Esgotado
                 </div>
               ) : null}
 
-              {option.badge && !option.soldOut && (
+              {badge && !soldOut && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="inline-flex bg-[#1F4F8F] text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">
-                    {option.badge}
+                    {badge}
                   </span>
                 </div>
               )}
@@ -85,20 +52,20 @@ export default function Pricing() {
                 {/* Title */}
                 <h3
                   className={`text-lg sm:text-xl font-bold uppercase tracking-[0.05em] ${
-                    option.soldOut ? "text-[#5f6b76] line-through decoration-2 decoration-[#5f6b76]/80" : "text-[#1a1a1a]"
+                    soldOut ? "text-[#5f6b76] line-through decoration-2 decoration-[#5f6b76]/80" : "text-[#1a1a1a]"
                   }`}
                 >
                   {option.title}
                 </h3>
 
                 {/* Description */}
-                {option.description && (
+                {description && (
                   <p className="mt-2 text-sm text-[#888888] leading-relaxed">
-                    {option.description}
+                    {description}
                   </p>
                 )}
 
-                {option.soldOut && (
+                {soldOut && (
                   <p className="mt-3 inline-flex w-fit rounded-full bg-[#7c8792] px-3 py-1 text-[11px] font-semibold text-center uppercase tracking-[0.24em] text-white">
                     Últimas unidades esgotadas
                   </p>
@@ -111,7 +78,7 @@ export default function Pricing() {
                   </span>
                   <span
                     className={`text-5xl sm:text-6xl font-bold ${
-                      option.soldOut ? "text-[#55626d]" : option.featured ? "text-primary-dark" : "text-[#1F4F8F]"
+                      soldOut ? "text-[#55626d]" : option.featured ? "text-primary-dark" : "text-[#1F4F8F]"
                     }`}
                   >
                     {option.price}
@@ -127,7 +94,7 @@ export default function Pricing() {
                   className={`mt-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out ${
                     option.featured
                       ? "bg-[#1F4F8F] text-white hover:bg-primary-dark hover:scale-105 active:scale-95"
-                      : option.soldOut
+                      : soldOut
                         ? "bg-[#4b5563] text-white hover:bg-[#374151] hover:scale-105 active:scale-95"
                         : "bg-[#1F4F8F] text-white hover:bg-primary-dark hover:scale-105 active:scale-95"
                   }`}
@@ -137,6 +104,8 @@ export default function Pricing() {
                 </a>
               </div>
             </div>
+              );
+            })()
           ))}
         </div>
 
