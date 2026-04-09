@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 interface PricingOption {
   title: string;
   price: number;
@@ -36,6 +37,9 @@ const pricingOptions: PricingOption[] = [
     link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
   },
 ];
+=======
+import { eventOffers } from "@/lib/seo";
+>>>>>>> b8a51ddf262e0d378aae27fad0af2792aa82a6d1
 
 export default function Pricing() {
   return (
@@ -51,7 +55,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pricingOptions.map((option, index) => (
+          {eventOffers.map((option, index) => (
             <div
               key={index}
               className={`relative rounded-2xl border transition-all duration-300 ease-in-out ${
@@ -119,6 +123,7 @@ export default function Pricing() {
                   href={option.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`Comprar ingresso ${option.title} do congresso de saúde, podologia e medicina esportiva`}
                   className={`mt-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out ${
                     option.featured
                       ? "bg-[#1F4F8F] text-white hover:bg-primary-dark hover:scale-105 active:scale-95"
@@ -143,6 +148,7 @@ export default function Pricing() {
           <a
             href="https://api.whatsapp.com/send/?phone=5516993108637&text&type=phone_number&app_absent=0"
             target="_blank"
+            title="Atendimento sobre congresso de saúde e medicina preventiva por WhatsApp"
             className="mt-3 inline-flex text-[#1F4F8F] font-semibold hover:text-primary-dark transition-colors duration-300"
           >
             (16) 99310-8637

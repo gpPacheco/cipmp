@@ -1,5 +1,6 @@
 const keywords = [
   "Podologia",
+  "Medicina Esportiva",
   "Saúde",
   "Inovação",
   "Biomecânica",
@@ -14,6 +15,11 @@ const keywords = [
   "Pé diabético",
   "Prática baseada em evidências",
   "Atualização científica",
+  "Congresso médico",
+  "Especialização em saúde",
+  "Podologia avançada",
+  "Prevenção de lesões no esporte",
+  "Cuidados com pé diabético",
 ];
 
 export default function Marquee() {

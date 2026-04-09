@@ -108,7 +108,7 @@ export default function Stats() {
 
         <div className="mt-10 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
-            O Futuro da Medicina e Podologia
+            Inovações em Saúde e Performance
           </h2>
           <p className="mt-4 text-muted max-w-xl mx-auto">
             Onde a ciência encontra a prática clínica. Dois dias de imersão
