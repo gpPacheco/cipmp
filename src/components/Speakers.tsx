@@ -1,5 +1,7 @@
 "use client";
 
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 
 import { useEffect, useRef, useState } from "react";
@@ -21,11 +23,11 @@ const speakers: Speaker[] = [
     specialty: "Ortopedia & Traumatologia",
     photo: "/p2.PNG",
   },
-  // {
-  //   name: "",
-  //   specialty: "",
-  //   photo: "/p3.PNG",
-  // },
+  {
+    name: "Dra. Maria Eugênia",
+    specialty: "Médica Pediatra",
+    photo: "/p3.PNG",
+  },
   {
     name: "Maristela Borges",
     specialty: "Nutricionista",
@@ -59,158 +61,80 @@ const speakers: Speaker[] = [
   // },
 
 export default function Speakers() {
-  const loopSpeakers = [...speakers, ...speakers, ...speakers];
   const speakerCardGradient =
     "bg-gradient-to-r from-[#F4C4A8] to-[#C8D5F0]";
+  const autoplayResumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const cardWidthRef = useRef(0);
-  const loopWidthRef = useRef(0);
-  const dragStartRef = useRef(0);
-  const dragActiveRef = useRef(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "start",
+      containScroll: "trimSnaps",
+      dragFree: true,
+      loop: true,
+    },
+    [
+      Autoplay({
+        delay: 2800,
+        playOnInit: true,
+        stopOnFocusIn: false,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+      }),
+    ],
+  );
+
   const [isDragging, setIsDragging] = useState(false);
 
-  const normalizeLoopPosition = (position: number) => {
-    const loopWidth = loopWidthRef.current;
-    if (!loopWidth) return position;
-
-    let normalized = position;
-    const min = loopWidth;
-    const max = loopWidth * 2;
-
-    while (normalized >= max) {
-      normalized -= loopWidth;
-    }
-
-    while (normalized < min) {
-      normalized += loopWidth;
-    }
-
-    return normalized;
-  };
-
-  const calculateMetrics = (element: HTMLDivElement) => {
-    const cards = element.querySelectorAll("article");
-    const firstCard = cards[0] as HTMLElement | undefined;
-    const secondCard = cards[1] as HTMLElement | undefined;
-    const firstCardOfSecondLoop = cards[speakers.length] as HTMLElement | undefined;
-
-    if (firstCard && secondCard) {
-      cardWidthRef.current = secondCard.offsetLeft - firstCard.offsetLeft;
-    } else if (firstCard) {
-      cardWidthRef.current = firstCard.getBoundingClientRect().width;
-    }
-
-    if (firstCard && firstCardOfSecondLoop) {
-      loopWidthRef.current = firstCardOfSecondLoop.offsetLeft - firstCard.offsetLeft;
-    } else {
-      loopWidthRef.current = element.scrollWidth / 3;
-    }
-  };
-
   useEffect(() => {
-    const element = carouselRef.current;
-    if (!element) return;
+    if (!emblaApi) return;
 
-    calculateMetrics(element);
-    if (loopWidthRef.current > 0) {
-      element.scrollLeft = loopWidthRef.current;
-    }
-
-    const resizeObserver = new ResizeObserver(() => {
-      calculateMetrics(element);
-      element.scrollLeft = normalizeLoopPosition(element.scrollLeft);
-    });
-
-    resizeObserver.observe(element);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    const element = carouselRef.current;
-    if (!element) return;
-
-    const handleMouseDown = (e: MouseEvent) => {
-      dragActiveRef.current = true;
-      dragStartRef.current = e.clientX;
+    const handlePointerDown = () => {
       setIsDragging(true);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!dragActiveRef.current) return;
-      const diff = dragStartRef.current - e.clientX;
-      element.scrollLeft += diff;
-      dragStartRef.current = e.clientX;
-      element.scrollLeft = normalizeLoopPosition(element.scrollLeft);
-    };
-
-    const handleMouseUp = () => {
-      dragActiveRef.current = false;
+    const handlePointerUp = () => {
       setIsDragging(false);
     };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      dragActiveRef.current = true;
-      dragStartRef.current = e.touches[0].clientX;
-      setIsDragging(true);
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!dragActiveRef.current) return;
-      const diff = dragStartRef.current - e.touches[0].clientX;
-      element.scrollLeft += diff;
-      dragStartRef.current = e.touches[0].clientX;
-      element.scrollLeft = normalizeLoopPosition(element.scrollLeft);
-    };
-
-    const handleTouchEnd = () => {
-      dragActiveRef.current = false;
-      setIsDragging(false);
-    };
-
-    element.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-    element.addEventListener("touchstart", handleTouchStart);
-    document.addEventListener("touchmove", handleTouchMove);
-    document.addEventListener("touchend", handleTouchEnd);
+    emblaApi.on("pointerDown", handlePointerDown);
+    emblaApi.on("pointerUp", handlePointerUp);
+    emblaApi.on("settle", handlePointerUp);
 
     return () => {
-      element.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-      element.removeEventListener("touchstart", handleTouchStart);
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
+      emblaApi.off("pointerDown", handlePointerDown);
+      emblaApi.off("pointerUp", handlePointerUp);
+      emblaApi.off("settle", handlePointerUp);
+    };
+  }, [emblaApi]);
+
+  useEffect(() => {
+    return () => {
+      if (autoplayResumeTimeoutRef.current) {
+        clearTimeout(autoplayResumeTimeoutRef.current);
+      }
     };
   }, []);
 
   const handleManualScroll = (direction: "prev" | "next") => {
-    const element = carouselRef.current;
-    if (!element) return;
+    const autoplay = emblaApi?.plugins().autoplay;
 
-    const cardWidth =
-      Number.isFinite(cardWidthRef.current) && cardWidthRef.current > 0
-        ? cardWidthRef.current
-        : element.clientWidth;
+    autoplay?.stop();
 
-    const loopWidth = loopWidthRef.current;
+    if (autoplayResumeTimeoutRef.current) {
+      clearTimeout(autoplayResumeTimeoutRef.current);
+      autoplayResumeTimeoutRef.current = null;
+    }
 
-    if (!Number.isFinite(cardWidth) || cardWidth <= 0 || !loopWidth) return;
+    if (direction === "next") {
+      emblaApi?.scrollNext();
+    } else {
+      emblaApi?.scrollPrev();
+    }
 
-    const normalizedCurrent = normalizeLoopPosition(element.scrollLeft);
-    const relativeToLoop = normalizedCurrent - loopWidth;
-    const currentIndex = Math.round(relativeToLoop / cardWidth);
-    const nextIndex = direction === "next" ? currentIndex + 1 : currentIndex - 1;
-    const target = normalizeLoopPosition(loopWidth + nextIndex * cardWidth);
-
-    element.scrollTo({
-      left: target,
-      behavior: "smooth",
-    });
+    autoplayResumeTimeoutRef.current = setTimeout(() => {
+      autoplay?.play();
+      autoplayResumeTimeoutRef.current = null;
+    }, 6500);
   };
 
   return (
@@ -271,22 +195,22 @@ export default function Speakers() {
             </svg>
           </button>
 
-          <div className="overflow-hidden">
+          <div className="overflow-visible">
             <div
-              ref={carouselRef}
-              className={`flex gap-5 overflow-x-scroll px-[calc(50%-130px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-6 sm:px-12 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+              ref={emblaRef}
+              className={`overflow-visible px-[calc(50%-130px)] sm:px-12 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
             >
-              {loopSpeakers.map((s, index) => (
+              <div className="-ml-5 flex items-stretch sm:-ml-6">
+              {speakers.map((s) => (
                 <article
-                  key={`${s.photo}-${index}`}
-                  className="group flex flex-col shrink-0 transition-none"
-                  style={{ width: "260px" }}
+                  key={s.photo}
+                  className="group flex h-full min-w-65 flex-[0_0_auto] pl-5 transition-none sm:pl-6"
                 >
                   {/* Card Container with shadow */}
-                  <div className="rounded-2xl bg-white shadow-sm">
+                  <div className="flex h-105 w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
                     {/* Image Area with gradient background */}
                     <div
-                      className={`relative aspect-square overflow-hidden rounded-t-2xl border-b border-[#E0E5EC] ${speakerCardGradient}`}
+                      className={`relative h-62.5 overflow-hidden border-b border-[#E0E5EC] ${speakerCardGradient}`}
                     >
                       {/* Image positioned to project head above card boundary */}
                       <Image
@@ -300,17 +224,18 @@ export default function Speakers() {
                     </div>
 
                     {/* Text Area - White background */}
-                    <div className="px-6 py-5 text-center">
-                      <h3 className="text-sm font-bold text-[#1a1a1a] uppercase tracking-[0.05em] leading-snug text-balance">
+                    <div className="flex flex-1 flex-col justify-between px-6 py-5 text-center">
+                      <h3 className="line-clamp-2 flex min-h-10 items-center justify-center text-sm font-bold uppercase leading-snug tracking-[0.05em] text-[#1a1a1a] text-balance">
                         {s.name}
                       </h3>
-                      <p className="mt-3 text-[11px] text-[#6b7280] uppercase leading-tight tracking-[0.08em] text-pretty">
+                      <p className="mt-3 line-clamp-2 flex min-h-9 items-center justify-center text-[11px] uppercase leading-tight tracking-[0.08em] text-[#6b7280] text-pretty">
                         {s.specialty}
                       </p>
                     </div>
                   </div>
                 </article>
               ))}
+              </div>
             </div>
           </div>
         </div>

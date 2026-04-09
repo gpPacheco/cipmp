@@ -42,9 +42,9 @@ export default function Ambassadors() {
               className="group flex flex-col items-center"
             >
               {/* Image Container with gradient and overflow visible */}
-              <div className="relative w-full aspect-square rounded-[20px] overflow-visible shadow-xl -mb-8 transition-transform duration-300 ease-out group-hover:-translate-y-3">
+              <div className="relative w-full aspect-square rounded-[20px] overflow-visible -mb-8 transition-transform duration-300 ease-out group-hover:-translate-y-3">
                 {/* Gradient background */}
-                <div className="absolute inset-0 rounded-[20px] bg-linear-to-b from-white via-white to-[#F0F4F8]" />
+                <div className="" />
 
                 {/* Image overlay */}
                 <Image
