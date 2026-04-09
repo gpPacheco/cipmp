@@ -1,7 +1,6 @@
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import AboutEvent from "@/components/AboutEvent";
 import Stats from "@/components/Stats";
 import Marquee from "@/components/Marquee";
 import Speakers from "@/components/Speakers";
@@ -93,7 +92,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <AboutEvent />
         <Stats />
         <Marquee />
         <Speakers />

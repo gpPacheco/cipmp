@@ -145,7 +145,7 @@ export default function Speakers() {
             Curadoria Científica
           </span>
           <h2 className="mt-3 text-balance text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.05]">
-            O papel da Podologia na Medicina Esportiva
+            Palestrantes confirmados
           </h2>
           <p className="mt-4 text-muted max-w-xl mx-auto leading-relaxed text-pretty">
             Especialistas de medicina e podologia em uma curadoria pensada para prática clínica e tomada de decisão.
@@ -215,7 +215,7 @@ export default function Speakers() {
                       {/* Image positioned to project head above card boundary */}
                       <Image
                         src={s.photo}
-                        alt={`${s.name} - Especialista em Medicina Esportiva no CIPMP 2026`}
+                        alt={`Foto de ${s.name}`}
                         fill
                         sizes="260px"
                         className="mt-12 object-cover scale-[1.1] -translate-y-10 transition-transform duration-300 ease-out group-hover:-translate-y-12"

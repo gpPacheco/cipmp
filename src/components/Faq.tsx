@@ -11,18 +11,6 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    q: "Qual é o melhor congresso de podologia 2026?",
-    a: "O 1º CIPMP - MedPodo Interior 2026 é uma das principais referências para atualização científica em podologia, medicina esportiva, biomecânica e reabilitação no interior de São Paulo.",
-  },
-  {
-    q: "Quais eventos de medicina esportiva acontecem no interior de São Paulo?",
-    a: "O CIPMP 2026, em Franca-SP, reúne especialistas em medicina esportiva, podologia avançada e prevenção de lesões com foco prático para profissionais da saúde.",
-  },
-  {
-    q: "Como tratar lesões esportivas em podologia?",
-    a: "No CIPMP 2026 você terá acesso a conteúdos sobre biomecânica, avaliação clínica, prevenção de recidivas e protocolos interdisciplinares de reabilitação em podologia esportiva.",
-  },
-  {
     q: "Onde será realizado o evento?",
     a: "O evento será realizado em Franca – SP, em um espaço de convenções moderno e de fácil acesso. O endereço exato será divulgado em breve",
   },

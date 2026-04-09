@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <Image
             src="/logo_evento.png"
-            alt="Logo do congresso de saúde, medicina preventiva e bem-estar CIPMP 2026"
+            alt="Logo principal do evento"
             width={132}
             height={42}
             className="h-8 w-auto"
@@ -21,11 +21,6 @@ export default function Footer() {
           Feito com <Heart size={14} className="text-primary" /> em Franca – SP
         </span>
       </div>
-      <p className="mt-6 text-center text-xs text-muted max-w-4xl mx-auto leading-relaxed">
-        Congresso de saúde e simpósio médico voltado para atualização profissional,
-        medicina preventiva, cuidados paliativos, saúde integral e qualidade de
-        vida no interior de São Paulo.
-      </p>
     </footer>
   );
 }
