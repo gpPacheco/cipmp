@@ -21,7 +21,7 @@ export default function Hero() {
         alt="Logo principal do evento"
         width={920}
         height={268}
-        className="mx-auto h-auto w-[min(96vw,920px)]"
+        className="mx-auto mt-2 mb-2 h-auto w-[min(96vw,920px)]"
         priority
       />
 
