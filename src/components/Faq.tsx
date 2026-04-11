@@ -12,11 +12,11 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     q: "Onde será realizado o evento?",
-    a: "O evento será realizado em Franca – SP, em um espaço de convenções moderno e de fácil acesso. O endereço exato será divulgado em breve",
+    a: "O evento será realizado em Franca – SP, no espaço de eventos Pádua Faria Advogados, Localizado na Av. São Vicente, 5811 - Três Colinas",
   },
   {
     q: "Qual a data do congresso?",
-    a: "O 1º CIPMP acontecerá no dia 22 de agosto de 2026, durante dois dias completos de programação.",
+    a: "O 1º CIPMP acontecerá no dia 22 de agosto de 2026.",
   },
   {
     q: "A inscrição inclui certificado?",

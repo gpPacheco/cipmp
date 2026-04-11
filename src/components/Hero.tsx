@@ -21,12 +21,12 @@ export default function Hero() {
         alt="Logo principal do evento"
         width={920}
         height={268}
-        className="mx-auto mt-2 mb-2 h-auto w-[min(96vw,920px)]"
+        className="mx-auto mt-8 mb-8 h-auto w-[min(96vw,920px)]"
         priority
       />
 
       <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-tight tracking-[-0.02em] text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-        Integração entre medicina, podologia e tecnologia aplicada ao cuidado.
+        Integração entre medicina e podologia.
       </h1>
 
       <p className="mt-6 text-muted text-base sm:text-lg max-w-2xl leading-relaxed">

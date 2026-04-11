@@ -12,10 +12,6 @@ const ambassadors: Ambassador[] = [
     name: "Bruna Letícia",
     photo: "/e1.PNG",
   },
-    {
-    name: "Rita Pacheco",
-    photo: "/e3.PNG",
-  },
   {
     name: "Nádia Andrade",
     photo: "/e2.PNG",
@@ -32,14 +28,14 @@ export default function Ambassadors() {
           </h2>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 max-w-6xl mx-auto">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-2xl mx-auto">
           {ambassadors.map((ambassador) => (
             <article
               key={ambassador.name}
               className="group flex flex-col items-center"
               itemScope
               itemType="https://schema.org/Person"
-              title={`${ambassador.name} | O futuro da medicina esportiva`}
+              title={`${ambassador.name} | Embaixadora do 1º CIPMP - 2026`}
             >
               <meta itemProp="knowsAbout" content="medicina do esporte" />
               <meta itemProp="knowsAbout" content="traumatologia esportiva" />
@@ -47,13 +43,10 @@ export default function Ambassadors() {
 
               {/* Image Container with gradient and overflow visible */}
               <div className="relative w-full aspect-square rounded-[20px] overflow-visible -mb-8 transition-transform duration-300 ease-out group-hover:-translate-y-3">
-                {/* Gradient background */}
-                <div className="" />
-
                 {/* Image overlay */}
                 <Image
                   src={ambassador.photo}
-                  alt={`${ambassador.name} - O futuro da medicina esportiva no CIPMP 2026`}
+                  alt={`${ambassador.name} - Embaixadoras do evento`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover scale-[1.3] -translate-y-8 transition-transform duration-300 ease-out group-hover:scale-[1.4] group-hover:-translate-y-10 rounded-[20px]"

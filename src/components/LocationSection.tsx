@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Volume2, VolumeX } from "lucide-react";
 
 const address = [
   "Franca, SP",
@@ -12,19 +13,28 @@ const address = [
 const mapUrl = "https://www.google.com/maps?q=P%C3%A1dua%20Faria%20Advogados%2C%20Av.%20S%C3%A3o%20Vicente%2C%205811%20-%20Tr%C3%AAs%20Colinas%2C%20Franca%20-%20SP&z=16&output=embed";
 
 export default function LocationSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
   return (
-    <section id="localizacao" className="py-20 px-6">
+    <section id="localizacao" className="py-24 px-4 md:px-12">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mb-8 md:mb-12">
           <span className="inline-flex rounded-full border border-slate-200/70 bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-700 shadow-sm shadow-slate-900/5 backdrop-blur">
             Localizacao
           </span>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-            Onde a inovacao acontece
+            Onde a inovação acontece
           </h2>
         </div>
 
-        <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
+        <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,29 +42,43 @@ export default function LocationSection() {
             viewport={{ once: true, amount: 0.28 }}
             className="mx-auto w-full max-w-sm lg:max-w-md"
           >
-            <div className="h-full rounded-3xl bg-linear-to-br from-slate-200/70 via-white to-slate-200/50 p-px shadow-2xl shadow-slate-900/10">
-              <div className="relative overflow-hidden rounded-[1.7rem] border border-slate-200/50 bg-white/75 backdrop-blur-md">
+            <div className="h-full rounded-3xl bg-linear-to-br from-slate-200/70 via-white to-slate-200/50 p-1 shadow-2xl shadow-slate-900/10">
+              <div className="relative overflow-hidden rounded-[1.7rem] border border-slate-200/50 bg-white/80 backdrop-blur-lg">
                 <div className="absolute left-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-700 shadow-sm shadow-slate-900/5 backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-slate-950" />
                   Vídeo da localização
                 </div>
 
-                <div className="aspect-9/16 w-full overflow-hidden">
+
+                <div className="aspect-9/16 w-full overflow-hidden relative">
                   <video
+                    ref={videoRef}
                     className="h-full w-full object-cover"
                     autoPlay
                     loop
-                    muted
+                    muted={muted}
                     playsInline
                     preload="metadata"
                   >
                     <source src="/locall.mp4" type="video/mp4" />
                     <source src="/local.mp4" type="video/mp4" />
                   </video>
+                  <button
+                    type="button"
+                    aria-label={muted ? 'Ativar áudio' : 'Desativar áudio'}
+                    onClick={toggleMute}
+                    className="absolute top-4 right-4 z-20 rounded-full bg-white/90 p-2 shadow-lg border border-slate-200/70 hover:bg-white"
+                  >
+                    {muted ? (
+                      <VolumeX size={24} className="text-slate-900" />
+                    ) : (
+                      <Volume2 size={24} className="text-slate-900" />
+                    )}
+                  </button>
                 </div>
 
-                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-slate-950/40 via-slate-950/10 to-transparent px-5 py-5 text-white">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/80">
+                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-slate-950/40 via-slate-950/10 to-transparent px-6 py-6 text-white">
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
                     Espaço oficial do congresso
                   </p>
                 </div>

@@ -2,15 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="fixed top-4 left-0 right-0 z-50 flex justify-center">
+    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center">
       <nav
-        className="relative flex w-[80%] sm:w-fit sm:max-w-2xl items-center gap-2 sm:gap-4 rounded-full bg-white/85 px-3 sm:px-6 py-2 sm:py-3 shadow-lg backdrop-blur-xl"
+        className="relative flex w-[90%] sm:w-fit sm:max-w-3xl items-center gap-3 sm:gap-6 rounded-full bg-white/90 px-4 sm:px-10 py-3 sm:py-4 shadow-xl shadow-slate-900/10 backdrop-blur-2xl border border-slate-200/60"
       >
         {/* Logo */}
         <a href="#hero" className="shrink-0">
@@ -30,18 +31,18 @@ export default function Navbar() {
             <MapPin size={12} />
             Franca – SP
           </span>
-          <a
-            href="#palestrantes"
-            className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
-          >
-            Palestrantes
-          </a>
-          <a
-            href="#patrocinadores"
-            className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
-          >
-            Patrocinadores
-          </a>
+          <Link href="#palestrantes" passHref legacyBehavior>
+            <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors">Palestrantes</a>
+          </Link>
+          <Link href="#patrocinadores" passHref legacyBehavior>
+            <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors">Patrocinadores</a>
+          </Link>
+          <Link href="#localizacao" passHref legacyBehavior>
+            <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors">Localização</a>
+          </Link>
+          <Link href="#ingressos" passHref legacyBehavior>
+            <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors">Ingressos</a>
+          </Link>
           <a
             href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
             className="bg-primary text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full hover:bg-primary-dark transition-colors"
@@ -68,20 +69,26 @@ export default function Navbar() {
               <MapPin size={12} />
               Franca – SP
             </span>
-            <a
-              href="#palestrantes"
-              className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              Palestrantes
-            </a>
-            <a
-              href="#patrocinadores"
-              className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              Patrocinadores
-            </a>
+            <Link href="#palestrantes" passHref legacyBehavior>
+              <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>
+                Palestrantes
+              </a>
+            </Link>
+            <Link href="#ingressos" passHref legacyBehavior>
+              <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>
+                Ingressos
+              </a>
+            </Link>
+            <Link href="#localizacao" passHref legacyBehavior>
+              <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>
+                Localização
+              </a>
+            </Link>
+            <Link href="#patrocinadores" passHref legacyBehavior>
+              <a className="text-xs sm:text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>
+                Patrocinadores
+              </a>
+            </Link>
             <a
               href="https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218"
               className="bg-primary text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary-dark transition-colors text-center"

@@ -23,15 +23,7 @@ export default function Sponsors() {
 
       <div className="max-w-6xl mx-auto">
         <div className="text-center">
-          <Image
-            src="/logo_evento.png"
-            alt="Logo principal do evento"
-            width={220}
-            height={72}
-            className="h-14 w-auto mx-auto"
-            priority
-          />
-          <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="mt-6 text-4xl sm:text-3xl md:text-4xl font-bold tracking-tight">
             Patrocinadores
           </h2>
         </div>

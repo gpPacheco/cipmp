@@ -111,8 +111,7 @@ export default function Stats() {
             O Futuro da Medicina e Podologia
           </h2>
           <p className="mt-4 text-muted max-w-xl mx-auto">
-            Onde a ciência encontra a prática clínica. Dois dias de imersão
-            total nas últimas inovações do setor.
+            Onde a ciência encontra a prática clínica.
           </p>
           <a
           target="_blank"
