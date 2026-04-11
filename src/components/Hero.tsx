@@ -25,21 +25,6 @@ export default function Hero() {
         priority
       />
 
-      <div className="mt-6 grid w-full max-w-5xl grid-cols-1 gap-3 sm:grid-cols-3">
-        <div className="rounded-[1.25rem] bg-white/65 px-5 py-4 text-center ring-1 ring-black/5">
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted">Evento</p>
-          <p className="mt-2 text-sm font-semibold tracking-[-0.01em] text-foreground">Congresso do Interior Paulista de Medicina e Podologia</p>
-        </div>
-        <div className="rounded-[1.25rem] bg-white/65 px-5 py-4 text-center ring-1 ring-black/5">
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted">Local</p>
-          <p className="mt-2 text-sm font-semibold tracking-[-0.01em] text-foreground">Franca, SP</p>
-        </div>
-        <div className="rounded-[1.25rem] bg-white/65 px-5 py-4 text-center ring-1 ring-black/5">
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted">Formato</p>
-          <p className="mt-2 text-sm font-semibold tracking-[-0.01em] text-foreground">Imersão em ciência e prática clínica</p>
-        </div>
-      </div>
-
       <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-tight tracking-[-0.02em] text-balance sm:text-5xl md:text-6xl lg:text-7xl">
         Integração entre medicina, podologia e tecnologia aplicada ao cuidado.
       </h1>

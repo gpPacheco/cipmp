@@ -34,9 +34,6 @@ export default function Sponsors() {
           <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
             Patrocinadores
           </h2>
-          <p className="mt-4 text-muted max-w-2xl mx-auto leading-relaxed text-pretty">
-            Marcas que acreditam na integração entre medicina e podologia para elevar a qualidade do cuidado clínico.
-          </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">

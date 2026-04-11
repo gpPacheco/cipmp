@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Timer } from "lucide-react";
+import { CalendarDays, Clock3, Timer } from "lucide-react";
 
 function getTimeLeft(target: Date) {
   const now = new Date().getTime();
@@ -15,11 +15,13 @@ function getTimeLeft(target: Date) {
   };
 }
 
-const EVENT_DATE = new Date("2026-08-22T08:00:00");
+const EVENT_DATE = new Date("2026-08-22T08:00:00-03:00");
 const INITIAL_TIME_LEFT = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 export default function Countdown() {
   const [time, setTime] = useState(INITIAL_TIME_LEFT);
+
+  const dateLabel = "22 de agosto de 2026";
 
   useEffect(() => {
     const tick = () => setTime(getTimeLeft(EVENT_DATE));
@@ -33,19 +35,26 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section className="py-12 sm:py-1 px-4 sm:px-6">
+    <section className="py-6 px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="backdrop-blur-sm p-8 sm:p-12 text-center">
+        <div className=" p-8 text-center backdrop-blur-sm sm:p-12">
           {/* Header */}
           <div className="flex items-center justify-center gap-2 text-primary mb-6">
             <Timer size={20} />
             <span className="text-sm sm:text-base font-semibold uppercase tracking-widest">
-              Faltam para o evento
+              Contagem regressiva
+            </span>
+          </div>
+
+          <div className="mx-auto mt-1 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-700 sm:text-sm">
+              <CalendarDays size={15} />
+              {dateLabel}
             </span>
           </div>
 
           {/* Countdown Grid */}
-          <div className="mt-8 flex justify-center gap-3 sm:gap-4 flex-wrap">
+          <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
             {(
               [
                 ["days", "Dias"],

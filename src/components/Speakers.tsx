@@ -13,20 +13,35 @@ interface Speaker {
 }
 
 const speakers: Speaker[] = [
-  {
+    {
+    name: "Jessica Bruxelas",
+    specialty: "Dermatologista",
+    photo: "/p7.PNG",
+  },
+    {
+    name: "Dr. Marcelo Cruz",
+    specialty: "Ortopedia & Traumatologia",
+    photo: "/p2.PNG",
+  },
+    {
+    name: "Haiani Mendes",
+    specialty: "Enfermeira Estomoterapeuta",
+    photo: "/p8.PNG",
+  },
+    {
     name: "Rogério de Augusto",
     specialty: "Fisioterapeuta Sesi Franca Basquete",
     photo: "/p1.PNG",
   },
   {
-    name: "Dr. Marcelo Cruz",
-    specialty: "Ortopedia & Traumatologia",
-    photo: "/p2.PNG",
-  },
-  {
     name: "Dra. Maria Eugênia",
     specialty: "Médica Pediatra",
     photo: "/p3.PNG",
+  },
+    {
+    name: "Dr. Fernando Raymundo",
+    specialty: "Médico Vascular",
+    photo: "/p6.PNG",
   },
   {
     name: "Maristela Borges",
@@ -38,21 +53,7 @@ const speakers: Speaker[] = [
   //   specialty: "",
   //   photo: "/p5.PNG",
   // },
-  {
-    name: "Dr. Fernando Raymundo",
-    specialty: "Médico Vascular",
-    photo: "/p6.PNG",
-  },
-  // {
-  //   name: "",
-  //   specialty: "",
-  //   photo: "/p7.PNG",
-  // },
-  {
-    name: "Haiani Mendes",
-    specialty: "Enfermeira Estomoterapeuta",
-    photo: "/p8.PNG",
-  },
+
 ];
   // {
   //   name: "",
@@ -147,9 +148,6 @@ export default function Speakers() {
           <h2 className="mt-3 text-balance text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.05]">
             Palestrantes confirmados
           </h2>
-          <p className="mt-4 text-muted max-w-xl mx-auto leading-relaxed text-pretty">
-            Especialistas de medicina e podologia em uma curadoria pensada para prática clínica e tomada de decisão.
-          </p>
         </div>
 
         <div className="relative mt-12">

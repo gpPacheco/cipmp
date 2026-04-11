@@ -4,6 +4,8 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Marquee from "@/components/Marquee";
 import Speakers from "@/components/Speakers";
+import LocationSection from "@/components/LocationSection";
+import ThemesSection from "@/components/ThemesSection";
 import Ambassadors from "@/components/Ambassadors";
 import Pricing from "@/components/Pricing";
 import Countdown from "@/components/Countdown";
@@ -95,9 +97,11 @@ export default function Home() {
         <Stats />
         <Marquee />
         <Speakers />
-        <Ambassadors />
+        {/* <ThemesSection /> */}
         <Countdown />
         <Pricing />
+        <LocationSection />
+        <Ambassadors />
         <Sponsors />
         <Faq />
       </main>
