@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 const sponsors = [
-  { name: "Cuore", src: "/Logo_CUORE.png" },
-  { name: "Qben", src: "/logo Qben .png" },
-  { name: "Humecta", src: "/logo humecta.png" },
+  { name: "Cuore", src: "/Logo_CUORE.png", logoHeightClass: "h-18 sm:h-22" },
+  { name: "Humecta", src: "/logo humecta.png", logoHeightClass: "h-24 sm:h-28" },
+  { name: "Qben", src: "/logo Qben .png", logoHeightClass: "h-26 sm:h-30" },
+  { name: "Anatofeet", src: "/Logo_Anatofeet.png", logoHeightClass: "h-26 sm:h-30" },
 ];
 
 export default function Sponsors() {
@@ -32,14 +33,14 @@ export default function Sponsors() {
           {sponsors.map((sponsor) => (
             <article
               key={sponsor.name}
-              className="px-8 py-8 flex items-center justify-center"
+              className="px-6 py-6 flex items-center justify-center"
             >
               <Image
                 src={sponsor.src}
                 alt={`Logo ${sponsor.name}`}
                 width={220}
                 height={88}
-                className="h-16 w-auto object-contain"
+                className={`${sponsor.logoHeightClass} w-auto object-contain`}
               />
             </article>
           ))}

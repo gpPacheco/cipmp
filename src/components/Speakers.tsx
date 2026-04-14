@@ -48,11 +48,11 @@ const speakers: Speaker[] = [
     specialty: "Nutricionista",
     photo: "/p4.PNG",
   },
-  // {
-  //   name: "Dr. ",
-  //   specialty: "",
-  //   photo: "/p5.PNG",
-  // },
+  {
+    name: "Dr. Matheus Pinheiro",
+    specialty: "Nutrologia e Medicina Esportiva",
+    photo: "/p5.PNG",
+  },
 
 ];
   // {
