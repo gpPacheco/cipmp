@@ -10,6 +10,10 @@ interface Speaker {
   name: string;
   specialty: string;
   photo: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageMarginTop?: number;
+  imageMarginBottom?: number;
 }
 
 const speakers: Speaker[] = [
@@ -17,49 +21,75 @@ const speakers: Speaker[] = [
     name: "Jessica Bruxelas",
     specialty: "Dermatologista",
     photo: "/p7.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 40,
   },
     {
     name: "Dr. Marcelo Cruz",
     specialty: "Ortopedia & Traumatologia",
     photo: "/p2.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 45,
   },
     {
     name: "Haiani Mendes",
     specialty: "Enfermeira Estomoterapeuta",
     photo: "/p8.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 52,
   },
     {
     name: "Rogério de Augusto",
     specialty: "Fisioterapeuta Sesi Franca Basquete",
     photo: "/p1.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 50,
   },
   {
     name: "Dra. Maria Eugênia",
     specialty: "Médica Pediatra",
     photo: "/p3.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 50,
   },
     {
     name: "Dr. Fernando Raymundo",
     specialty: "Médico Vascular",
     photo: "/p6.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 50,
   },
   {
     name: "Maristela Borges",
     specialty: "Nutricionista",
     photo: "/p4.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 50,
   },
   {
     name: "Dr. Matheus Pinheiro",
     specialty: "Nutrologia e Medicina Esportiva",
     photo: "/p5.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 50,
   },
-
+  {
+    name: "Laís Nunes",
+    specialty: "Pediatra e Gastropediatra",
+    photo: "/p11.PNG",
+      imageWidth: 300,
+      imageHeight: 260,
+        imageMarginTop: 50,
+  },
 ];
-  // {
-  //   name: "",
-  //   specialty: "",
-  //   photo: "/p11.PNG",
-  // },
 
 export default function Speakers() {
   const speakerCardGradient =
@@ -202,27 +232,36 @@ export default function Speakers() {
               {speakers.map((s) => (
                 <article
                   key={s.photo}
-                  className="group flex h-full min-w-65 flex-[0_0_auto] pl-5 transition-none sm:pl-6"
+                  className="group flex h-90 w-65 shrink-0 pl-5 transition-none sm:pl-6"
                 >
                   {/* Card Container with shadow */}
-                  <div className="flex h-105 w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
+                  <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
                     {/* Image Area with gradient background */}
                     <div
-                      className={`relative h-62.5 overflow-hidden border-b border-[#E0E5EC] ${speakerCardGradient}`}
+                      className={`relative h-62.5 overflow-hidden ${speakerCardGradient}`}
                     >
                       {/* Image positioned to project head above card boundary */}
-                      <Image
-                        src={s.photo}
-                        alt={`Foto de ${s.name}`}
-                        fill
-                        sizes="260px"
-                        className="mt-12 object-cover scale-[1.1] -translate-y-10 transition-transform duration-300 ease-out group-hover:-translate-y-12"
-                        style={{ objectPosition: "center 20%" }}
-                      />
+                      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                        <Image
+                          src={s.photo}
+                          alt={`Foto de ${s.name}`}
+                          width={s.imageWidth}
+                          height={s.imageHeight}
+                          sizes="260px"
+                          className="object-cover transition-transform duration-300 ease-out group-hover:-translate-y-2 "
+                          style={{
+                            objectPosition: "center 20%",
+                            width: s.imageWidth,
+                            height: s.imageHeight,
+                            marginTop: s.imageMarginTop,
+                            marginBottom: s.imageMarginBottom,
+                          }}
+                        />
+                      </div>
                     </div>
 
                     {/* Text Area - White background */}
-                    <div className="flex flex-1 flex-col justify-between px-6 py-5 text-center">
+                    <div className="flex flex-1 flex-col justify-between px-6 py-5 text-center ">
                       <h3 className="line-clamp-2 flex min-h-10 items-center justify-center text-sm font-bold uppercase leading-snug tracking-[0.05em] text-[#1a1a1a] text-balance">
                         {s.name}
                       </h3>

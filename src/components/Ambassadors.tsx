@@ -37,8 +37,8 @@ export default function Ambassadors() {
               itemType="https://schema.org/Person"
               title={`${ambassador.name} | Embaixadora do 1º CIPMP - 2026`}
             >
-              <meta itemProp="knowsAbout" content="medicina do esporte" />
-              <meta itemProp="knowsAbout" content="traumatologia esportiva" />
+              <meta itemProp="knowsAbout" content="medicina do" />
+              <meta itemProp="knowsAbout" content="traumatologia" />
               <meta itemProp="knowsAbout" content="medicina regenerativa" />
 
               {/* Image Container with gradient and overflow visible */}

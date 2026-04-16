@@ -13,7 +13,7 @@ interface StatItem {
 const stats: StatItem[] = [
   { icon: <Mic size={28} />, value: 9, suffix: "+", label: "Palestrantes" },
   { icon: <Clock size={28} />, value: 12, suffix: "h", label: "De conteúdo" },
-  { icon: <Handshake size={28} />, value: 3, suffix: "+", label: "Grandes empresas parceiras" },
+  { icon: <Handshake size={28} />, value: 4, suffix: "+", label: "Grandes empresas parceiras" },
   { icon: <Users size={28} />, value: 150, suffix: "+", label: "Público esperado" },
 ];
 
@@ -101,7 +101,7 @@ export default function Stats() {
               >
                 0{s.suffix}
               </span>
-              <span className="text-muted text-sm">{s.label}</span>
+              <span className="text-muted text-sm text-center">{s.label}</span>
             </div>
           ))}
         </div>
