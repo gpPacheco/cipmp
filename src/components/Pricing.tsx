@@ -6,15 +6,17 @@ export default function Pricing() {
   const urgencyText =
     "🔥︎ ÚLTIMOS INGRESSOS DO LOTE 🔥︎ GARANTA SUA VAGA AGORA 🔥︎";
   const urgencyLoop = [0, 1, 2, 3];
+  // duplicate the loop array to ensure the marquee has enough repeated content
+  const duplicatedUrgencyLoop = [...urgencyLoop, ...urgencyLoop, ...urgencyLoop];
 
   return (
     <section id="ingressos" className="py-6 sm:py-8 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="relative left-1/2 right-1/2 mt-8 w-screen -translate-x-1/2 overflow-hidden border border-slate-900/20 bg-teal-dark">
-          <div className="group flex w-max items-center gap-8 py-3 animate-[marquee-left_18s_linear_infinite] md:hover:[animation-play-state:paused]">
-            {urgencyLoop.map((loop) => (
+          <div className="group flex w-max items-center gap-8 py-3 animate-[marquee-left_36s_linear_infinite] md:hover:[animation-play-state:paused]">
+            {duplicatedUrgencyLoop.map((loop, idx) => (
               <span
-                key={loop}
+                key={`${loop}-${idx}`}
                 className="shrink-0 text-xs font-bold uppercase tracking-[0.03em] text-amber-100 sm:text-sm md:text-base"
               >
                 {urgencyText}

@@ -20,7 +20,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "A inscrição inclui certificado?",
-    a: "Sim! Todos os inscritos receberão certificado digital de participação com carga horária de 16 horas.",
+    a: "Sim! Todos os inscritos receberão certificado digital de participação com carga horária.",
   },
   {
     q: "Posso parcelar o pagamento?",

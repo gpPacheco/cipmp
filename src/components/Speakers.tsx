@@ -41,14 +41,14 @@ const speakers: Speaker[] = [
       imageHeight: 260,
         imageMarginTop: 52,
   },
-    {
-    name: "Rogério de Augusto",
-    specialty: "Fisioterapeuta Sesi Franca Basquete",
-    photo: "/p1.PNG",
-      imageWidth: 260,
-      imageHeight: 260,
-        imageMarginTop: 50,
-  },
+  //   {
+  //   name: "Rogério de Augusto",
+  //   specialty: "Fisioterapeuta Sesi Franca Basquete",
+  //   photo: "/p1.PNG",
+  //     imageWidth: 260,
+  //     imageHeight: 260,
+  //       imageMarginTop: 50,
+  // },
   {
     name: "Dra. Maria Eugênia",
     specialty: "Médica Pediatra",
@@ -100,8 +100,8 @@ export default function Speakers() {
     {
       align: "start",
       containScroll: "trimSnaps",
-      dragFree: true,
-      loop: true,
+      dragFree: false,
+      loop: false,
     },
     [
       Autoplay({
@@ -223,10 +223,10 @@ export default function Speakers() {
             </svg>
           </button>
 
-          <div className="overflow-visible">
+          <div className="overflow-hidden">
             <div
               ref={emblaRef}
-              className={`overflow-visible px-[calc(50%-130px)] sm:px-12 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+              className={`overflow-hidden px-[calc(50%-130px)] sm:px-12 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
             >
               <div className="-ml-5 flex items-stretch sm:-ml-6">
               {speakers.map((s) => (
