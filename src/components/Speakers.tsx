@@ -28,7 +28,7 @@ const speakers: Speaker[] = [
     {
     name: "Dr. Marcelo Cruz",
     specialty: "Ortopedia & Traumatologia",
-    photo: "/p2.PNG",
+    photo: "/p2.png",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 45,
@@ -41,14 +41,14 @@ const speakers: Speaker[] = [
       imageHeight: 260,
         imageMarginTop: 52,
   },
-  //   {
-  //   name: "Rogério de Augusto",
-  //   specialty: "Fisioterapeuta Sesi Franca Basquete",
-  //   photo: "/p1.PNG",
-  //     imageWidth: 260,
-  //     imageHeight: 260,
-  //       imageMarginTop: 50,
-  // },
+    {
+    name: "Adão Alves",
+    specialty: "Podologista e professor",
+    photo: "/p12.PNG",
+      imageWidth: 260,
+      imageHeight: 260,
+        imageMarginTop: 50,
+  },
   {
     name: "Dra. Maria Eugênia",
     specialty: "Médica Pediatra",
