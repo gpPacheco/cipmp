@@ -20,7 +20,7 @@ const speakers: Speaker[] = [
     {
     name: "Jessica Bruxelas",
     specialty: "Dermatologista",
-    photo: "/p7.png",
+    photo: "/p7.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 40,
@@ -28,7 +28,7 @@ const speakers: Speaker[] = [
     {
     name: "Dr. Marcelo Cruz",
     specialty: "Ortopedia & Traumatologia",
-    photo: "/p2.png",
+    photo: "/p2.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 45,
@@ -36,7 +36,7 @@ const speakers: Speaker[] = [
     {
     name: "Haiani Mendes",
     specialty: "Enfermeira Estomoterapeuta",
-    photo: "/p8.png",
+    photo: "/p8.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 52,
@@ -52,7 +52,7 @@ const speakers: Speaker[] = [
   {
     name: "Dra. Maria Eugênia",
     specialty: "Médica Pediatra",
-    photo: "/p3.png",
+    photo: "/p3.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 50,
@@ -60,7 +60,7 @@ const speakers: Speaker[] = [
     {
     name: "Dr. Fernando Raymundo",
     specialty: "Médico Vascular",
-    photo: "/p6.png",
+    photo: "/p6.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 50,
@@ -68,7 +68,7 @@ const speakers: Speaker[] = [
   {
     name: "Maristela Borges",
     specialty: "Nutricionista",
-    photo: "/p4.png",
+    photo: "/p4.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 50,
@@ -76,7 +76,7 @@ const speakers: Speaker[] = [
   {
     name: "Dr. Matheus Pinheiro",
     specialty: "Nutrologia e Medicina Esportiva",
-    photo: "/p5.png",
+    photo: "/p5.PNG",
       imageWidth: 260,
       imageHeight: 260,
         imageMarginTop: 50,
@@ -84,7 +84,7 @@ const speakers: Speaker[] = [
   {
     name: "Laís Nunes",
     specialty: "Pediatra e Gastropediatra",
-    photo: "/p11.png",
+    photo: "/p11.PNG",
       imageWidth: 300,
       imageHeight: 260,
         imageMarginTop: 50,
