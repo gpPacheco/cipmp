@@ -93,7 +93,7 @@ export default function LocationSection() {
             viewport={{ once: true, amount: 0.28 }}
             className="grid gap-4"
           >
-            <div className="rounded-3xl bg-linear-to-br from-slate-200/70 via-white to-slate-200/50 p-px shadow-2xl shadow-slate-900/10">
+            <div className="mx-auto w-full max-w-sm lg:max-w-full"> 
               <div className="aspect-video overflow-hidden rounded-[1.7rem] border border-slate-200/50 bg-white/75 backdrop-blur-md">
                 <iframe
                   title="Mapa interativo da localizacao do congresso em Franca, SP"
@@ -106,7 +106,7 @@ export default function LocationSection() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.35)] backdrop-blur-md">
+            <div className="mx-auto w-full max-w-sm lg:max-w-full border border-slate-200/50 bg-white/75 p-6 rounded-[1.7rem] shadow-lg shadow-slate-900/10">
               <div className="flex items-start gap-3">
                 <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-slate-950 text-white">
                   <MapPin size={17} strokeWidth={1.8} />
