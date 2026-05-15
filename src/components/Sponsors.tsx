@@ -7,6 +7,12 @@ const sponsors = [
   { name: "Anatofeet", src: "/Logo_Anatofeet.png", logoHeightClass: "h-26 sm:h-30" },
 ];
 
+const featuredSponsor = {
+  name: "OrthoCalce",
+  src: "/Logo_orthocalce.png",
+  logoHeightClass: "h-20 sm:h-24",
+};
+
 export default function Sponsors() {
   return (
     <section id="patrocinadores" className="relative py-12 sm:py-16 px-6 overflow-hidden">
@@ -44,6 +50,18 @@ export default function Sponsors() {
               />
             </article>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <article className="px-6 py-6 flex items-center justify-center">
+            <Image
+              src={featuredSponsor.src}
+              alt={`Logo ${featuredSponsor.name}`}
+              width={220}
+              height={88}
+              className={`${featuredSponsor.logoHeightClass} w-auto object-contain`}
+            />
+          </article>
         </div>
       </div>
     </section>
