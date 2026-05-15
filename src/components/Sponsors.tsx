@@ -10,7 +10,7 @@ const sponsors = [
 const featuredSponsor = {
   name: "OrthoCalce",
   src: "/Logo_orthocalce.png",
-  logoHeightClass: "h-20 sm:h-24",
+  logoHeightClass: "h-26 sm:h-30",
 };
 
 export default function Sponsors() {
