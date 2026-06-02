@@ -5,7 +5,7 @@ import Stats from "@/components/Stats";
 import Marquee from "@/components/Marquee";
 import Speakers from "@/components/Speakers";
 import LocationSection from "@/components/LocationSection";
-// import ThemesSection from "@/components/ThemesSection";
+import ThemesSection from "@/components/ThemesSection";
 import Ambassadors from "@/components/Ambassadors";
 import Pricing from "@/components/Pricing";
 import Countdown from "@/components/Countdown";
@@ -13,6 +13,8 @@ import Sponsors from "@/components/Sponsors";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import Idealizadora from "@/components/Idealizadora";
+import Support from "@/components/Support";
+import PartnerHotels from "@/components/Hotels";
 import {
   eventOffers,
   eventStartDate,
@@ -98,13 +100,15 @@ export default function Home() {
         <Stats />
         <Marquee />
         <Speakers />
-        {/* <ThemesSection /> */}
+        <ThemesSection />
         <Countdown />
         <Pricing />
         <LocationSection />
         <Idealizadora />
         <Ambassadors />
         <Sponsors />
+        <Support/>
+        <PartnerHotels/>
         <Faq />
       </main>
       <Footer />
