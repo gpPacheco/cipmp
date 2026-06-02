@@ -15,18 +15,9 @@ export default function ThemesSection() {
     <section id="temas" className="py-16">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
-            Temas das Palestras
-          </span>
-
           <h2 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl">
-            Grade Científica
+            Temas das Palestras
           </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            Conteúdos atualizados e aplicáveis à prática clínica apresentados
-            durante o 1º Congresso do Interior Paulista de Medicina e Podologia.
-          </p>
         </div>
 
         <div className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">

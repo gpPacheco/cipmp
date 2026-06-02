@@ -8,7 +8,7 @@ const supporters = [
 
 export default function Support() {
   return (
-    <section id="apoio" className="py-12 sm:py-16 px-6 bg-gray-50">
+    <section id="apoio" className="py-12 sm:py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
