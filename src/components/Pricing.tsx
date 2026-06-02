@@ -4,7 +4,7 @@ import { eventOffers } from "@/lib/seo";
 
 export default function Pricing() {
   const urgencyText =
-    "🔥︎ ÚLTIMOS INGRESSOS DO LOTE 🔥︎ GARANTA SUA VAGA AGORA 🔥︎";
+    "🔥︎ ÚLTIMOS INGRESSOS DO LOTE 🔥︎ APROVEITE A TAXA ZERO 🔥︎";
   const urgencyLoop = [0, 1, 2, 3];
   // duplicate the loop array to ensure the marquee has enough repeated content
   const duplicatedUrgencyLoop = [...urgencyLoop, ...urgencyLoop, ...urgencyLoop];

@@ -55,9 +55,9 @@ export const seoKeywords = [
 
 export const eventOffers = [
   {
-    title: "Lote Promocional",
-    price: 197,
-    description: undefined,
+    title: "1º Lote",
+    price: 247,
+    description: "Acesso premium ao evento",
     badge: undefined,
     featured: false,
     soldOut: true,
@@ -75,9 +75,9 @@ export const eventOffers = [
     link: "https://www.sympla.com.br/evento/1-cipmp---congresso-do-interior-paulista-de-medicina-e-podologia/3367218",
   },
   {
-    title: "1º Lote",
-    price: 247,
-    description: "Acesso premium ao evento",
+    title: "2º Lote",
+    price: 267,
+    description: "Com taxa grátis até 07/06",
     badge: undefined,
     featured: false,
     soldOut: false,
