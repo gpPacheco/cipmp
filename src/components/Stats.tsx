@@ -84,7 +84,7 @@ export default function Stats() {
       className="py-12 sm:py-16 px-6"
     >
       <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold tracking-tight mb-8">
-        A CIPMP em números
+        CIPMP em números
       </h2>
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

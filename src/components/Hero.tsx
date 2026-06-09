@@ -30,8 +30,8 @@ export default function Hero() {
       </h1>
 
       <p className="mt-6 text-muted text-base sm:text-lg max-w-2xl leading-relaxed">
-        O 1º Congresso de Integração entre Podologia e Medicina do interior
-        paulista. Uma experiência imersiva que une ciência, tecnologia e
+        O 1º Congresso de Integração entre Podologia e Medicina do Interior
+        Paulista. Uma experiência imersiva que une ciência, tecnologia e
         prática clínica em Franca, SP.
       </p>
 
