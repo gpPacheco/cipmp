@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const supporters = [
   { name: "Benevida", src: "/benevida.png" },
-  { name: "JK Da Mineira", src: "/jk.png" },
-  { name: "Suco e Amor", src: "/suco.png" },
+  { name: "JK Da Mineira", src: "/jk.jpeg" },
+  { name: "Suco e Amor", src: "/suco.PNG" },
 ];
 
 export default function Support() {

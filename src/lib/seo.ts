@@ -57,7 +57,7 @@ export const eventOffers = [
   {
     title: "1º Lote",
     price: 247,
-    description: "Acesso premium ao evento",
+    description: "Acesso premium ao congresso",
     badge: undefined,
     featured: false,
     soldOut: true,
@@ -77,7 +77,7 @@ export const eventOffers = [
   {
     title: "2º Lote",
     price: 267,
-    description: "Com taxa grátis até 07/06",
+    description: "Acesso primum ao congresso",
     badge: undefined,
     featured: false,
     soldOut: false,
