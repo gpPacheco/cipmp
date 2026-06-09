@@ -1,56 +1,82 @@
 export const siteUrl = "https://cipmp.com.br";
 
 export const seoKeywords = [
+  // Marca
+  "MedPodo",
+  "Congresso MedPodo",
+  "Congresso MedPodo Franca",
+
+  // Evento
+  "Congresso de Podologia",
+  "Congresso de Medicina Esportiva",
+  "Congresso de Saúde",
+  "Congresso multidisciplinar de saúde",
+  "Evento para profissionais da saúde",
+  "Atualização profissional em saúde",
+  "Simpósio de saúde",
+  "Congresso científico",
+
+  // Localização
+  "Congresso em Franca SP",
+  "Evento de saúde em Franca",
+  "Congresso no interior de São Paulo",
+  "Congresso médico em São Paulo",
+  "Franca SP",
+
+  // Podologia
   "Podologia",
-  "Podiatria",
-  "Onicocriptose",
+  "Podologia clínica",
   "Podologia geriátrica",
   "Podologia infantil",
+  "Podiatria",
   "Pé diabético",
+  "Onicocriptose",
+  "Tratamento de unha encravada",
   "Tratamento de micose",
   "Calosidades",
   "Órteses ungueais",
-  "Saúde preventiva dos pés",
-  "Assepsia",
-  "Podologia clínica",
-  "Palmilhas sob medida",
   "Baropodometria",
-  "Medicina Esportiva",
+  "Palmilhas sob medida",
+  "Saúde dos pés",
+  "Cuidados preventivos dos pés",
+
+  // Medicina esportiva
+  "Medicina esportiva",
   "Traumatologia esportiva",
-  "Medicina regenerativa",
-  "Fisiologia do exercício",
-  "Reabilitação de atletas",
-  "Prevenção de lesões",
-  "Biomecânica da marcha",
+  "Reabilitação esportiva",
+  "Prevenção de lesões esportivas",
+  "Performance atlética",
   "Biomecânica",
-  "Medicina do esporte",
-  "Doping",
+  "Biomecânica da marcha",
+  "Fisiologia do exercício",
   "Nutrição esportiva",
+  "Medicina regenerativa",
+
+  // Fisioterapia e reabilitação
+  "Fisioterapia esportiva",
   "Terapia manual",
   "Cinesiologia",
-  "Saúde",
-  "Saúde integral",
-  "Medicina preventiva",
-  "Qualidade de vida",
-  "Bem-estar físico",
-  "Cuidados paliativos",
-  "Tecnologia médica",
-  "Fisioterapia",
-  "Esporte",
-  "Reabilitação",
+  "Reabilitação funcional",
   "Ortopedia",
-  "Tratamento de Pés",
-  "Performance Atlética",
-  "Congresso de Saúde",
-  "Simpósio médico",
-  "Atualização profissional",
-  "Saúde pública",
+  "Recuperação de atletas",
+
+  // Tendências
   "Longevidade",
   "Biohacking",
+  "Medicina preventiva",
   "Medicina humanizada",
-  "MedPodo",
-  "Franca SP",
-  "Interior de São Paulo",
+  "Tecnologia na saúde",
+  "Qualidade de vida",
+  "Bem-estar",
+  "Saúde integral",
+
+  // Busca por ingresso
+  "Inscrição congresso de podologia",
+  "Inscrição congresso medicina esportiva",
+  "Ingressos congresso de saúde",
+  "Evento para podólogos",
+  "Evento para fisioterapeutas",
+  "Evento para médicos do esporte"
 ];
 
 export const eventOffers = [
