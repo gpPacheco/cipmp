@@ -30,6 +30,10 @@ const faqs: FaqItem[] = [
     q: "Quem pode participar?",
     a: "O congresso é aberto a médicos, podólogos, fisioterapeutas, estudantes da área da saúde e demais profissionais interessados no tema.",
   },
+  {
+    q: "Estudantes precisam de comprovante?",
+    a: "Sim, é enssencial que o estudante comprove o seu vínculo com a entidade estudantil.",
+  },
 ];
 
 export default function Faq() {
