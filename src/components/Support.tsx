@@ -12,27 +12,34 @@ const supporters = [
 
 export default function Support() {
   return (
-    <section id="apoio" className="py-12 sm:py-16 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="apoio" className="py-20">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          <span className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
+            Parcerias
+          </span>
+
+          <h2 className="mt-4 text-4xl font-bold text-slate-900">
             Apoiadores
           </h2>
+
+          <p className="mt-4 text-slate-600">
+            Empresas e marcas que tornam este congresso possível.
+          </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {supporters.map((supporter) => (
             <article
               key={supporter.name}
-              className="flex items-center justify-center rounded-xl bg-white p-6 shadow-sm"
+              className="flex aspect-[4/3] items-center justify-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
             >
               <Image
                 src={supporter.src}
                 alt={`Logo ${supporter.name}`}
                 width={240}
                 height={120}
-                className="h-24 w-auto object-contain"
-                priority
+                className="h-full w-full object-contain grayscale transition duration-300 hover:grayscale-0"
               />
             </article>
           ))}
