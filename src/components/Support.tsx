@@ -28,18 +28,18 @@ export default function Support() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
           {supporters.map((supporter) => (
             <article
               key={supporter.name}
-              className="flex aspect-[4/3] items-center justify-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
+              className="flex aspect-[4/3] w-[calc(50%-0.75rem)] items-center justify-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md sm:w-[calc(33.333%-1rem)] md:w-[calc(25%-1.125rem)]"
             >
               <Image
                 src={supporter.src}
                 alt={`Logo ${supporter.name}`}
                 width={240}
                 height={120}
-                className="h-full w-full object-contain grayscale transition duration-300 hover:grayscale-0"
+                className="h-full w-full object-contain"
               />
             </article>
           ))}
