@@ -4,6 +4,10 @@ const supporters = [
   { name: "Benevida", src: "/benevida.png" },
   { name: "JK Da Mineira", src: "/jk.jpeg" },
   { name: "Suco e Amor", src: "/suco.PNG" },
+  { name: "Farmácia Cruzeiro", src: "/farmacia_cruzeiro.webp" },
+  { name: "Droga Farma", src: "/droga_farma.jpeg" },
+  { name: "Rede Bem", src: "/rede_bem.jpeg" },
+  { name: "Oficinal", src: "/oficinal.jpeg" },
 ];
 
 export default function Support() {

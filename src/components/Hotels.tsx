@@ -10,6 +10,11 @@ const hotels = [
     whatsapp: "(16) 99998-1880",
     address: "Av. Miguel Sábio de Mello, 1505 - Parque do Castelo",
   },
+    {
+    name: "Hotel Dan Inn",
+    whatsapp: "(16) 3707-4200",
+    address: "Rua Alfredo Tosí, 1088 - Núcleo Agrícola Alpha Franca",
+  },
 ];
 
 export default function PartnerHotels() {
