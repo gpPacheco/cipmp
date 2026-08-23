@@ -9,10 +9,6 @@ interface Ambassador {
 
 const ambassadors: Ambassador[] = [
   {
-    name: "Bruna Letícia",
-    photo: "/e1.PNG",
-  },
-  {
     name: "Nádia Andrade",
     photo: "/e2.PNG",
   },
