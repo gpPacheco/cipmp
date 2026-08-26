@@ -1,16 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Volume2, VolumeX } from "lucide-react";
-
-const address = [
-  "Franca, SP",
-  "Pádua Faria Advogados",
-  "Av. São Vicente, 5811 - Três Colinas",
-];
-
-const mapUrl = "https://www.google.com/maps?q=P%C3%A1dua%20Faria%20Advogados%2C%20Av.%20S%C3%A3o%20Vicente%2C%205811%20-%20Tr%C3%AAs%20Colinas%2C%20Franca%20-%20SP&z=16&output=embed";
+import { Volume2, VolumeX } from "lucide-react";
 
 export default function LocationSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -22,120 +13,69 @@ export default function LocationSection() {
       setMuted(videoRef.current.muted);
     }
   };
+
   return (
-    <section id="localizacao" className="py-24 px-4 md:px-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl mb-8 md:mb-12">
-          <span className="inline-flex rounded-full border border-slate-200/70 bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-700 shadow-sm shadow-slate-900/5 backdrop-blur">
-            Localizacao
+    <section id="localizacao" className="py-16 sm:py-20 px-6">
+      <div className="mx-auto max-w-4xl">
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-primary mb-4">
+            Local do Evento
           </span>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">
-            Onde a inovação acontece
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+            Onde aconteceu
           </h2>
+          <p className="mt-3 text-muted text-sm sm:text-base max-w-sm mx-auto">
+            Pádua Faria Advogados · Franca, SP · 22 de agosto de 2026
+          </p>
         </div>
 
-        <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.28 }}
-            className="mx-auto w-full max-w-sm lg:max-w-md"
-          >
-            <div className="h-full rounded-3xl bg-linear-to-br from-slate-200/70 via-white to-slate-200/50 p-1 shadow-2xl shadow-slate-900/10">
-              <div className="relative overflow-hidden rounded-[1.7rem] border border-slate-200/50 bg-white/80 backdrop-blur-lg">
-                <div className="absolute left-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-700 shadow-sm shadow-slate-900/5 backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-slate-950" />
-                  Vídeo da localização
-                </div>
-
-
-                <div className="aspect-9/16 w-full overflow-hidden relative">
-                  <video
-                    ref={videoRef}
-                    className="h-full w-full object-cover"
-                    autoPlay
-                    loop
-                    muted={muted}
-                    playsInline
-                    preload="metadata"
-                  >
-                    <source src="/locall.mp4" type="video/mp4" />
-                    <source src="/local.mp4" type="video/mp4" />
-                  </video>
-                  <button
-                    type="button"
-                    aria-label={muted ? 'Ativar áudio' : 'Desativar áudio'}
-                    onClick={toggleMute}
-                    className="absolute top-4 right-4 z-20 rounded-full bg-white/90 p-2 shadow-lg border border-slate-200/70 hover:bg-white"
-                  >
-                    {muted ? (
-                      <VolumeX size={24} className="text-slate-900" />
-                    ) : (
-                      <Volume2 size={24} className="text-slate-900" />
-                    )}
-                  </button>
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-slate-950/40 via-slate-950/10 to-transparent px-6 py-6 text-white">
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
-                    Espaço oficial do congresso
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.28 }}
-            className="grid gap-4"
-          >
-            <div className="mx-auto w-full max-w-sm lg:max-w-full"> 
-              <div className="aspect-video overflow-hidden rounded-[1.7rem] border border-slate-200/50 bg-white/75 backdrop-blur-md">
-                <iframe
-                  title="Mapa interativo da localizacao do congresso em Franca, SP"
-                  src={mapUrl}
-                  className="h-full w-full"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-              </div>
+        {/* Centered video card */}
+        <div className="mx-auto max-w-sm">
+          <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/15 border border-border bg-card">
+            {/* Badge */}
+            <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-700 shadow-sm backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-950" />
+              Espaço oficial
             </div>
 
-            <div className="mx-auto w-full max-w-sm lg:max-w-full border border-slate-200/50 bg-white/75 p-6 rounded-[1.7rem] shadow-lg shadow-slate-900/10">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-slate-950 text-white">
-                  <MapPin size={17} strokeWidth={1.8} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-                    Endereco
-                  </p>
-                  {address.map((line, index) => (
-                    <p key={index} className="mt-1 text-sm leading-6 text-slate-700 md:text-base">
-                      {line}
-                    </p>
-                  ))}
-                </div>
-              </div>
+            {/* Mute toggle */}
+            <button
+              type="button"
+              aria-label={muted ? "Ativar áudio" : "Desativar áudio"}
+              onClick={toggleMute}
+              className="absolute top-4 right-4 z-10 rounded-full bg-white/90 p-2 shadow-lg border border-slate-200/70 hover:bg-white transition-colors"
+            >
+              {muted ? (
+                <VolumeX size={20} className="text-slate-900" />
+              ) : (
+                <Volume2 size={20} className="text-slate-900" />
+              )}
+            </button>
 
-              <div className="mt-6">
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=P%C3%A1dua%20Faria%20Advogados%2C%20Av.%20S%C3%A3o%20Vicente%2C%205811%20-%20Tr%C3%AAs%20Colinas%2C%20Franca%20-%20SP"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/15 transition-transform duration-300 hover:-translate-y-0.5 hover:bg-slate-800 active:scale-[0.98]"
-                >
-                  Como chegar
-                  <ArrowRight size={16} strokeWidth={2} />
-                </a>
-              </div>
+            {/* Video */}
+            <div className="aspect-[9/16] w-full overflow-hidden">
+              <video
+                ref={videoRef}
+                className="h-full w-full object-cover"
+                autoPlay
+                loop
+                muted={muted}
+                playsInline
+                preload="metadata"
+              >
+                <source src="/locall.mp4" type="video/mp4" />
+                <source src="/local.mp4" type="video/mp4" />
+              </video>
             </div>
-          </motion.div>
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/40 via-slate-950/10 to-transparent px-6 py-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+                Pádua Faria Advogados · Franca – SP
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

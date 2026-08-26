@@ -173,10 +173,10 @@ export default function Speakers() {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex rounded-full bg-[#E1F3FE] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-[#1F6C9F]">
-            Curadoria Científica
+            Curadoria Científica 2026
           </span>
           <h2 className="mt-3 text-balance text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] leading-[1.05]">
-            Palestrantes confirmados
+            Palestrantes que participaram
           </h2>
         </div>
 

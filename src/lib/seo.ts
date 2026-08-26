@@ -113,12 +113,12 @@ export const eventOffers = [
 ] as const;
 
 export const eventTitle =
-  "1º CIPMP 2026 | Congresso de Podologia e Medicina | Saúde, Performance e Reabilitação";
+  "1º CIPMP 2026 — Retrospectiva | Congresso de Podologia e Medicina | Franca, SP";
 
 export const eventDescription =
-  "O maior evento de Podologia e Medicina do interior. Aprenda sobre podologia clínica, pé diabético, biomecânica da marcha, prevenção de lesões, medicina preventiva e qualidade de vida. Garanta seu ingresso para o MedPodo 2026.";
+  "Confira como foi o 1º CIPMP 2026! Reviva os melhores momentos do maior evento de Podologia e Medicina do interior paulista. Palestrantes, galeria de fotos, curiosidades e muito mais.";
 
 export const richDescription =
-  "1º CIPMP - MedPodo Interior 2026, congresso médico com foco em especialização em saúde, podologia avançada, prevenção de lesões no esporte, cuidados com pé diabético, saúde integral, tecnologia médica e atualização profissional para medicina humanizada.";
+  "1º CIPMP - MedPodo Interior 2026 — retrospectiva do congresso médico com foco em podologia avançada, medicina preventiva, pé diabético, biomecânica da marcha, saúde integral e tecnologia médica. Realizado em 22 de agosto de 2026, em Franca, SP.";
 
 export const eventStartDate = "2026-08-22T08:00:00-03:00";

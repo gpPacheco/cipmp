@@ -11,28 +11,28 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    q: "Onde será realizado o evento?",
-    a: "O evento será realizado em Franca – SP, no espaço de eventos Pádua Faria Advogados, Localizado na Av. São Vicente, 5811 - Três Colinas",
+    q: "Onde foi realizado o evento?",
+    a: "O evento foi realizado em Franca – SP, no espaço de eventos Pádua Faria Advogados, localizado na Av. São Vicente, 5811 - Três Colinas.",
   },
   {
-    q: "Qual a data do congresso?",
-    a: "O 1º CIPMP acontecerá no dia 22 de agosto de 2026.",
+    q: "Quando aconteceu o 1º CIPMP?",
+    a: "O 1º CIPMP aconteceu no dia 22 de agosto de 2026, em Franca – SP.",
   },
   {
-    q: "A inscrição inclui certificado?",
-    a: "Sim! Todos os inscritos receberão certificado digital de participação com carga horária.",
+    q: "Os participantes receberam certificado?",
+    a: "Sim! Todos os inscritos receberam certificado digital de participação com carga horária.",
   },
   {
-    q: "Posso parcelar o pagamento?",
-    a: "Sim, além de PIX e boleto para pagamento à vista com desconto adicional.",
+    q: "Quem participou do congresso?",
+    a: "O congresso reuniu médicos, podólogos, fisioterapeutas, estudantes da área da saúde e demais profissionais interessados no tema.",
   },
   {
-    q: "Quem pode participar?",
-    a: "O congresso é aberto a médicos, podólogos, fisioterapeutas, estudantes da área da saúde e demais profissionais interessados no tema.",
+    q: "O evento teve acessibilidade?",
+    a: "Sim! O CIPMP 2026 contou com tradução simultânea em Língua Brasileira de Sinais (Libras) em todas as palestras, reforçando o compromisso com a inclusão e a acessibilidade.",
   },
   {
-    q: "Estudantes precisam de comprovante?",
-    a: "Sim, é enssencial que o estudante comprove o seu vínculo com a entidade estudantil.",
+    q: "Haverá uma próxima edição?",
+    a: "Sim! O CIPMP 2027 está em planejamento. Fique de olho nas nossas redes sociais para não perder as novidades.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function Faq() {
           Perguntas Frequentes
         </h2>
         <p className="mt-4 text-muted">
-          Tire suas dúvidas sobre o congresso.
+          Tudo o que você precisa saber sobre a edição 2026.
         </p>
       </div>
 
