@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -125,7 +125,12 @@ const stats: StatItem[] = [
 
 export default function Stats() {
   const autoplayRef = useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({
+      delay: 2800,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+      playOnInit: true,
+    })
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -133,34 +138,26 @@ export default function Stats() {
       loop: true,
       align: "start",
       containScroll: false,
-      dragFree: true,
+      dragFree: false,
+      duration: 35,
     },
     [autoplayRef.current]
   );
 
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-
-  const onSelect = useCallback(() => {
+  const scrollPrev = useCallback(() => {
     if (!emblaApi) return;
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
+    emblaApi.scrollPrev();
   }, [emblaApi]);
 
-  useEffect(() => {
+  const scrollNext = useCallback(() => {
     if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-  }, [emblaApi, onSelect]);
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+    emblaApi.scrollNext();
+  }, [emblaApi]);
 
   return (
     <section id="stats" className="relative py-16 sm:py-24 overflow-hidden w-full">
       {/* Header Container */}
-      <div className="max-w-5xl mx-auto px-6 text-center mb-12">
+      <div className="max-w-5xl mx-auto px-6 text-center mb-12 sm:mb-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary mb-4">
           <Sparkles size={12} className="text-primary animate-pulse" />
           Resultados Oficiais
@@ -169,37 +166,39 @@ export default function Stats() {
           CIPMP 2026 em números
         </h2>
         <p className="mt-3 text-muted text-sm sm:text-base max-w-lg mx-auto">
-          Arraste para os lados e confira os números consolidados que marcaram o sucesso da 1ª edição.
+          Arraste para os lados ou use as setas para navegar pelo impacto da 1ª edição.
         </p>
-
-        {/* Navigation Arrows Controls */}
-        <div className="flex items-center justify-center gap-3 mt-6">
-          <button
-            onClick={scrollPrev}
-            aria-label="Card anterior"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white shadow-sm transition-all hover:bg-primary hover:text-white hover:border-primary active:scale-95 cursor-pointer"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <span className="text-xs text-muted font-medium px-2">13 métricas de impacto</span>
-          <button
-            onClick={scrollNext}
-            aria-label="Próximo card"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white shadow-sm transition-all hover:bg-primary hover:text-white hover:border-primary active:scale-95 cursor-pointer"
-          >
-            <ChevronRight size={18} />
-          </button>
-        </div>
       </div>
 
-      {/* Full-bleed Edge-to-Edge Carousel */}
-      <div className="relative w-full">
-        {/* Left & Right gradient edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-l from-background to-transparent z-10" />
+      {/* Full-bleed Edge-to-Edge Infinite Carousel Container */}
+      <div className="relative w-full group">
+        {/* Centered Left Arrow */}
+        <button
+          onClick={scrollPrev}
+          aria-label="Card anterior"
+          className="absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/95 border border-slate-200/90 shadow-xl shadow-slate-900/10 text-slate-800 backdrop-blur-md transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <ChevronLeft size={22} />
+        </button>
+
+        {/* Centered Right Arrow */}
+        <button
+          onClick={scrollNext}
+          aria-label="Próximo card"
+          className="absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/95 border border-slate-200/90 shadow-xl shadow-slate-900/10 text-slate-800 backdrop-blur-md transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <ChevronRight size={22} />
+        </button>
+
+        {/* Gradient edge fades */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-28 bg-gradient-to-r from-background via-background/60 to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-28 bg-gradient-to-l from-background via-background/60 to-transparent z-10" />
 
         {/* Embla Viewport */}
-        <div className="overflow-hidden w-full cursor-grab active:cursor-grabbing px-4 sm:px-8" ref={emblaRef}>
+        <div
+          className="overflow-hidden w-full cursor-grab active:cursor-grabbing px-6 sm:px-12 md:px-16"
+          ref={emblaRef}
+        >
           <div className="flex gap-4 sm:gap-5 py-4">
             {stats.map((s, i) => (
               <div
@@ -207,12 +206,12 @@ export default function Stats() {
                 className={`
                   flex flex-col justify-between shrink-0 w-[240px] sm:w-[270px] md:w-[290px] h-[210px] sm:h-[220px] p-6 sm:p-7
                   rounded-3xl border bg-gradient-to-br ${s.gradient} shadow-sm backdrop-blur-sm
-                  transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-primary/40 group
+                  transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-primary/40 group/card select-none
                 `}
               >
                 {/* Card Top: Icon and Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/90 shadow-sm border border-black/5 transition-transform duration-300 group-hover:scale-110">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/90 shadow-sm border border-black/5 transition-transform duration-300 group-hover/card:scale-110">
                     {s.icon}
                   </div>
                   {s.badge && (
