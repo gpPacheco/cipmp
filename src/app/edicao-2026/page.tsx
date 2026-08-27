@@ -8,6 +8,7 @@ import AccessibilityAndGallery from "@/components/AccessibilityAndGallery";
 import Speakers from "@/components/Speakers";
 import ThemesSection from "@/components/ThemesSection";
 import Idealizadora from "@/components/Idealizadora";
+import Ambassadors from "@/components/Ambassadors";
 import LocationSection from "@/components/LocationSection";
 import Sponsors from "@/components/Sponsors";
 import Support from "@/components/Support";
@@ -59,18 +60,21 @@ export default function Edicao2026Page() {
           />
 
           <div className="relative z-10 max-w-4xl mx-auto">
-            {/* Back link */}
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm mb-8 hover:bg-white/20 transition-colors"
-            >
-              <ArrowLeft size={14} />
-              Voltar para o Início
-            </Link>
+            {/* Top Navigation & Status Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-sm"
+              >
+                <ArrowLeft size={14} />
+                Voltar para o Início
+              </Link>
 
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/70 backdrop-blur-sm mb-6">
-              Acervo Completo
-            </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/70 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-white/60 animate-pulse" />
+                Acervo Completo
+              </span>
+            </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.9] tracking-[-0.03em] mb-6">
               Retrospectiva
@@ -117,6 +121,9 @@ export default function Edicao2026Page() {
 
         {/* ── Idealizadora ──────────────────────────────────────────── */}
         <Idealizadora />
+
+        {/* ── Embaixadora ───────────────────────────────────────────── */}
+        <Ambassadors />
 
         {/* ── Local do Evento (só vídeo) ────────────────────────────── */}
         <LocationSection />
