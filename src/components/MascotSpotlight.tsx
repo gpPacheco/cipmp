@@ -25,17 +25,18 @@ export default function MascotSpotlight() {
           </p>
         </div>
 
-        {/* Video + text layout */}
+        {/* Video / GIF + text layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Mascot image */}
+          {/* Mascot animated container */}
           <div className="relative group flex justify-center">
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/30 via-teal/20 to-primary/10 blur-sm opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="relative rounded-3xl overflow-hidden bg-card border border-border shadow-xl shadow-slate-900/10">
+            <div className="relative rounded-3xl overflow-hidden bg-card border border-border shadow-xl shadow-slate-900/10 w-full">
               <Image
-                src="/mascote.jpg"
+                src="/mascote.gif"
                 alt="Mascote oficial do CIPMP 2026 — personagem em formato de pé simpático feito em massinha"
                 width={640}
                 height={360}
+                unoptimized
                 className="w-full h-auto object-cover"
                 priority
               />
