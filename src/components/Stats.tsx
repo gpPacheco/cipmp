@@ -199,36 +199,41 @@ export default function Stats() {
           className="overflow-hidden w-full cursor-grab active:cursor-grabbing px-6 sm:px-12 md:px-16"
           ref={emblaRef}
         >
-          <div className="flex gap-4 sm:gap-5 py-4">
+          {/* Embla Track: uses negative margin and child padding for 100% stable gaps during infinite loop */}
+          <div className="-ml-4 sm:-ml-5 flex py-4">
             {stats.map((s, i) => (
               <div
                 key={i}
-                className={`
-                  flex flex-col justify-between shrink-0 w-[240px] sm:w-[270px] md:w-[290px] h-[210px] sm:h-[220px] p-6 sm:p-7
-                  rounded-3xl border bg-gradient-to-br ${s.gradient} shadow-sm backdrop-blur-sm
-                  transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-primary/40 group/card select-none
-                `}
+                className="min-w-0 shrink-0 w-[250px] sm:w-[280px] md:w-[300px] pl-4 sm:pl-5 select-none"
               >
-                {/* Card Top: Icon and Badge */}
-                <div className="flex items-center justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/90 shadow-sm border border-black/5 transition-transform duration-300 group-hover/card:scale-110">
-                    {s.icon}
+                <div
+                  className={`
+                    flex flex-col justify-between h-[210px] sm:h-[220px] p-6 sm:p-7
+                    rounded-3xl border bg-gradient-to-br ${s.gradient} shadow-sm backdrop-blur-sm
+                    transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-primary/40 group/card
+                  `}
+                >
+                  {/* Card Top: Icon and Badge */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/90 shadow-sm border border-black/5 transition-transform duration-300 group-hover/card:scale-110">
+                      {s.icon}
+                    </div>
+                    {s.badge && (
+                      <span className="rounded-full bg-white/80 border border-black/5 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-700 shadow-2xs">
+                        {s.badge}
+                      </span>
+                    )}
                   </div>
-                  {s.badge && (
-                    <span className="rounded-full bg-white/80 border border-black/5 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-700 shadow-2xs">
-                      {s.badge}
-                    </span>
-                  )}
-                </div>
 
-                {/* Card Bottom: Big Number and Label */}
-                <div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-none">
-                    {s.displayValue}
+                  {/* Card Bottom: Big Number and Label */}
+                  <div>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-none">
+                      {s.displayValue}
+                    </div>
+                    <p className="mt-2 text-xs sm:text-sm font-medium text-muted leading-snug">
+                      {s.label}
+                    </p>
                   </div>
-                  <p className="mt-2 text-xs sm:text-sm font-medium text-muted leading-snug">
-                    {s.label}
-                  </p>
                 </div>
               </div>
             ))}
