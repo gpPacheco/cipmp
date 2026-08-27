@@ -1,10 +1,5 @@
 "use client";
 
-// ─── Embaixadora do evento ────────────────────────────────────────────────────
-// Bruna Letícia removida permanentemente.
-// e2.PNG não é mais referenciado neste componente.
-// ─────────────────────────────────────────────────────────────────────────────
-
 import Image from "next/image";
 
 interface Ambassador {
@@ -15,7 +10,7 @@ interface Ambassador {
 const ambassadors: Ambassador[] = [
   {
     name: "Nádia Andrade",
-    photo: "/e3.PNG", // e2.PNG removido — use outra imagem se necessário
+    photo: "/e2.PNG",
   },
 ];
 
